@@ -8,7 +8,7 @@
 <body>
 
     <script>
-   /*
+  
    //01 Question Answer
 
    let userGreet= prompt("Please enter your name");
@@ -417,10 +417,78 @@
     }
 
 
-     */
+    
 
 
      //19 Question Answer
+
+     const user_score=Number(prompt("Please type the number"));
+
+     if(user_score > 50){
+        alert("You are passed");
+     }else{
+        alert("Try again!");
+     }
+
+
+
+
+
+      //20 Question Answer
+      const compare_num_1=Number(prompt("Please enter the first number"));
+      const compare_num_2=Number(prompt("Please enter the second number"));
+
+      if(compare_num_1> compare_num_2){
+        alert("The greater number of " + compare_num_1 + " and " + compare_num_2 + " is " + compare_num_1);
+      }
+      else if(compare_num_1 < compare_num_2){
+        alert("The greater number of " + compare_num_1 + " and " + compare_num_2 + " is " + compare_num_2);
+      }else if(compare_num_1 === compare_num_2){
+        alert(compare_num_1 + " and " + compare_num_2 + " both numbers are equal ");
+      }
+
+
+      
+
+       //21 Question Answer
+       const user_lang=prompt("Please type the language for e.g english , turkish, spanish");
+
+       if(user_lang=="english" || user_lang=="English"){
+        console.log("Hello World");
+       }else if(user_lang=="turkish" || user_lang=="Turkish"){
+        console.log("Selam Dünya");
+       }if(user_lang=="spanish" || user_lang=="Spanish"){
+        console.log("Hola Mundo");
+       }else{
+        console.log("Hello World");
+       }
+
+
+      
+
+
+      //22 Question Answer
+
+       const num_check=Number(prompt("Please enter the number"));
+       if(num_check > 0){
+        alert("It's a positive number");
+       }else{
+        alert("It's a negative number");
+       }
+
+
+
+
+
+      //23 Question Answer 
+      const user_noun=prompt("Please type any noun");
+      const user_number=Number(prompt("Please type number"));
+
+      if(user_number > 1){
+        alert(user_number+ " " + user_noun+"s");
+      }else{
+        alert(user_number+ " " + user_noun);
+      }
 
 
     </script>
