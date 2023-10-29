@@ -40,19 +40,33 @@ function mycalc(num1, num2){
 
 const customerName= prompt("Please Enter Your Name");
 const productName01= prompt("Please Enter First Product Name"); 
+const productPrice01=Number(prompt("Please enter First product price"));
 const productName02= prompt("Please Enter Second Product Name"); 
-const productPrice01=Number(prompt("Please enter product price"));
-const productPrice02= Number(prompt("Please enter product price"));
-function myshop(customerName,productName01,productName02,productPrice01,productPrice02){
- const userInfo= "Customer Name : " + customerName + " First Product Name: " + productName01 + " Second Product Name: " + productName02;
+const productPrice02= Number(prompt("Please enter second product price"));
 const calc = productPrice01 + productPrice02;
+function myshop(customerName,productName01,productName02,productPrice01,productPrice02,calc){
+ const userInfo= "Customer Name : " + customerName + "\nFirst Product Name: " + productName01 + " price " + productPrice01 + "\nSecond Product Name: " + productName02 + " price " + productPrice02  + "\nTotal Order Amount: " + calc;
 
 
-return (userInfo , calc);
+
+return (userInfo);
 
 }
 
-console.log(myshop(customerName,productName01,productName02,productPrice01,productPrice02));
+console.log(myshop(customerName,productName01,productName02,productPrice01,productPrice02,calc));
+
+
+//test example
+/*
+const name="Danish QRA";
+function my_code(name){
+   //const my_name="My Name is " + name; 
+//return(my_name);
+console.log("Hello World");
+}
+
+console.log(my_code());
+*/
 
 
 </script>
