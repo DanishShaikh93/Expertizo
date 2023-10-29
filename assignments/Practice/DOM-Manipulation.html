@@ -1,0 +1,24 @@
+<html>
+<head></head>
+<body>
+
+<h1 id="head">Hello World</h1>
+<button onclick="greetUser()">Click To Manipulate Heading</button>
+
+<script>
+let h1 = document.querySelector("#head");
+let num=1;
+
+function greetUser(){
+    if(h1.innerHTML==="Hello World"){
+        h1.innerHTML = 'Hello Danish ' + num++;
+    }else{
+        h1.innerHTML = 'Hello World';
+    }
+}
+
+</script>
+
+</body>
+
+</html>

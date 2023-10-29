@@ -204,9 +204,224 @@
     }
 
 
-     */ 
+    
+
+     //10 Question Answer 
+     const product_one=prompt("Please eneter first product name");
+     const product_one_price=Number(prompt("Please eneter first product price"));
+     const product_one_qty=Number(prompt("Please eneter first product quantity"));
+     const product_two=prompt("Please eneter second product name");
+     const product_two_price=Number(prompt("Please eneter second product price"));
+     const product_two_qty=Number(prompt("Please eneter second product quantity"));
+     const shipping_charges= 250;
+     const total_cost=product_one_price*product_one_qty+product_two_price*product_two_qty+shipping_charges;
+     const discount=10;
+     const discounted_amount=total_cost* discount / 100;
+     const final_order_amount=total_cost-discounted_amount;
+
+     console.log("Price of " + product_one + " is " + product_one_price);
+     console.log("Qunatity of " + product_one + " is " + product_one_qty);
+     console.log("Price of " + product_two + " is " + product_two_price);
+     console.log("Qunatity of " + product_two + " is " + product_two_qty);
+     console.log("Shipping Charges " + shipping_charges);
+
+     if(total_cost > 2000){
+        console.log("10% Discount Applied You've Purchase Above 2000 Price Products");
+        console.log("Total cose of your order is " + total_cost);
+        console.log("After Discounted price " + final_order_amount);
+     }else{
+        console.log("Total cose of your order is " + total_cost);
+     }
+
+    
+   
+
+    //11 Question Answer 
+
+    let prize=5;
+    let guessNumber=Number(prompt("Guess the secret number and win the game"));
+
+    if(guessNumber === 5){
+        alert("Bingo! Correct answer");
+    }
+    else if(guessNumber === 4  || guessNumber === 6){
+        alert("Close enough to the correct answer");
+    }
+    else{
+        alert("Better luck next time");
+    }
 
      
+
+
+    //12 Question Answer   
+
+    const can_divide=Number(prompt("Type the number to check its divisible or not by 3"));
+    if(can_divide % 3 ===0){
+        console.log("Divisible");
+    }else{
+        console.log("Not Divisible");
+    }
+
+
+
+
+    //13 Question Answer 
+
+    const team_A=Number(prompt("Please enter Team A score"));
+    const team_B=Number(prompt("Please enter Team B score"));
+
+    if(team_A > team_B){
+        alert("Team A Won the game");
+    }
+    else if(team_A < team_B){
+        alert("Team B Won the game");
+    }
+    else if(team_A === team_B){
+        alert("Game Tie");
+    }
+
+
+
+   
+
+
+    //14 Question Answer 
+
+    let place="Pakistan";
+    let mynum=1234;
+    let status=true;
+
+    if(place=== "Pakistan"){
+    alert( place + " is a String");
+    }
+
+    if(mynum=== 1234){
+    alert( mynum + " is a Number");
+    }
+
+    if(status=== true){
+    alert( status + " is a Bolean");
+    }
+
+
+   //Example 2: or we can check with type of fucntion
+
+    const myString = "Hello, I'm a string";
+    const myNumber = 42;
+    const myBoolean = true;
+
+    // Check and respond to the type of each variable
+    if (typeof myString === "string") {
+    console.log("myString is a string:", myString);
+    }
+
+    if (typeof myNumber === "number") {
+    console.log("myNumber is a number:", myNumber);
+    }
+
+    if (typeof myBoolean === "boolean") {
+    console.log("myBoolean is a boolean:", myBoolean);
+    }
+     
+
+    
+
+
+    //15 Question Answer 
+    
+    const user_input=Number(prompt("Please enter the number"));
+
+    if(user_input % 2 === 0){
+        console.log("Its an even number");
+        
+    }
+    else if(user_input % 2 !== 0 ){
+            console.log("Its an odd number");
+        }
+    else{
+        console.log("Please type the number only");
+    }
+
+    //We check if the number is even or odd by using the modulous operator (%). If the remainder is 0, it's an even number; otherwise, it's an odd number.
+
+
+
+      
+
+    //16 Question Answer
+    
+    const temperature=Number(prompt("Please type your area temperature"));
+    if(temperature > 40){
+        alert("It is too hot outside.");
+    }
+    else if(temperature > 30){
+        alert("The Weather today is Normal.");
+    }
+    else if(temperature > 20){
+        alert("Today’s Weather is cool.");
+    }
+    else if(temperature > 10){
+        alert("OMG! Today’s weather is so Cool");
+    }
+
+
+    
+
+
+    //17 Question Answer
+
+    const first_num=Number(prompt("Please enter first number"));
+    const second_num=Number(prompt("Please enter second number"));
+    const choose_operator=prompt("Please type the operator +, -, *, /, % ");
+    let result;
+
+    if(choose_operator==="+"){
+        result = first_num + second_num;
+        alert(first_num + choose_operator + second_num + " result is " + result);
+    }
+    else if(choose_operator==="-"){
+        result = first_num - second_num;
+        alert(first_num + choose_operator + second_num + " result is " + result);
+    }
+    else if(choose_operator==="*"){
+        result = first_num * second_num;
+        alert(first_num + choose_operator + second_num + " result is " + result);
+    }
+    else if(choose_operator==="/"){
+        result = first_num / second_num;
+        alert(first_num + choose_operator + second_num + " result is " + result);
+    }
+    else if(choose_operator==="%"){
+        result = first_num % second_num;
+        alert(first_num + choose_operator + second_num + " result is " + result);
+    }else{
+        alert("Please type valid Numbers & Operators for perform Mathematics");
+    }
+
+
+   
+
+    //18 Question Answer
+
+    const week_day=prompt("Type the day name");
+
+    if(week_day==="monday" || week_day==="tuesday" || week_day==="wednesday" || week_day==="thursday" || week_day==="friday" || week_day==="Monday" || week_day==="Tuesday" || week_day==="Wednesday" || week_day==="Thursday" || week_day==="Friday" ){
+        alert("It's a week day");
+    }else if(week_day==="saturday" || week_day==="Saturday"){
+        alert("It's weekend");
+    }else if(week_day==="sunday" || week_day==="Sunday"){
+        alert("Yay! It's a holiday");
+    }else{
+        alert("Please type correct day name");
+    }
+
+
+     */
+
+
+     //19 Question Answer
+
 
     </script>
     
