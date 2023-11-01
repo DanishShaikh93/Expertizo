@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        const birds=["Hawk", "Finch", "Dove","Eagle"];
+        console.log(birds[2]);
+
+
+        let my_number=[1,2,3,4,5,6,7,8,9,10];
+       my_number.splice(6,3,17,18,19);
+       console.log(my_number);
+
+       let new_num=[1,2,3,4,5,6,7,8,9,10];
+       new_num.splice(0,1); //remove one
+       console.log(new_num);
+       new_num.splice(3,1); // remove 5
+       console.log(new_num);
+       new_num.splice(7,1); //remove 10
+       console.log(new_num);
+
+
+       let my_name= "My Name is Danish";
+       let sum= my_name.split(' ');
+       console.log(sum);
+
+       let letter_spc= "Birds "+ birds.join(" , ");
+
+       console.log(letter_spc);
+
+       
+
+    </script>
+    
+</body>
+</html>

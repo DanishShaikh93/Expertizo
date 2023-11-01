@@ -8,6 +8,8 @@
 <body>
     
 <div id="txt-Change">P1 + P2 calcution will show here</div>
+<h1 class="myhd">Hello World</h1>
+<button onclick="myFucntion(Danish)">Click Me</button>
     
     
     <script>
@@ -16,6 +18,17 @@ const p2=Number(prompt("Please enter second number"));
 const sum = p1+p2;
 const calc_value= document.querySelector("#txt-Change");
 calc_value.innerHTML=p1 + "+" +  p2 + "=" + sum;
+
+
+
+const changeHD= document.querySelector(".myhd");
+
+function myFucntion(name){
+return(changeHD.innerHTML="Hello User" + name );
+ 
+}
+console.log(changeHD);
+
     </script>
 
 </body>

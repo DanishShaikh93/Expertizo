@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+   
+let fruits=["Apple", "Mango" , "Banana", "Orange", "peach"];
+console.log(fruits);
+
+//Function 1
+//array pop function example (Array ki last value remove krdeta hai)
+    // fruits.pop();
+    // console.log(fruits);
+
+//Function 2
+//array push (Array mein last value add krta hai)
+    // fruits.push('Watermelon');
+    // console.log(fruits);
+
+//Function 3
+//array shift (Array mein se first value delete krdega)
+    // fruits.shift();
+    // console.log(fruits);   
+
+//Fucntion 4
+//array unshift (Array mein first value add krta hai)    
+    // fruits.unshift('Watermelon','Lemon');
+    // console.log(fruits);
+
+//Function 5
+//array splice (Array ka ye function 3 arguments leta hai (kahan se shuru krna hai, kitni value delete ho gea array se, "kon kon c values add hon gea") is tarha se function likhna hai)
+
+    //fruits.splice(0, 2, "Grapes","Kiwi", 4 ,"Avacado");
+    //fruits.splice(0, 3); //for remove selected range of value only but not include the last selected value.
+    //console.log(fruits);
+
+
+//Function 6
+//array slice (ye function array mein new array bana kr dega aur ye 1 ya 2 arguments leta hai k new array kahan se shuru krni hai aur wahan se le k akhri argument tak new array bana deta hai jise log kr k check kr saktey hen for example 2 se 4 ya 1 se 5 aur ek baat jo last range di hoti hai ye usey add nhi krta jese 2 se 4 tak hai to ye sirf 2 se 3 tak get kr k new array banaye ga last value add nhi krega sath mein.)
+    // const citrus= fruits.slice(2,4);
+    // console.log(citrus);
+
+
+//Function 7
+//array split use hota hai ksi bhi string ko array mein convert krne k liye for e.g agar ap string mein "Danish Shaikh" likhtey ho tou ye 2 words hen aur center mein space tou split ka function call krwatey huwe space dena ho ga ease split(' space ') you ye function check kre ga k isey string ko kahan se alag alag krna hai ek aur e.g "Danish-Shaikh-Qadri" agar easa string huwa tou in ko array mein krne k liye split("-"); likhe gy aur ye name array mein 3 vakue mein aa jayega hum ksi bhi sign ya pehchan se string ko array mein divide kr sktey hen. 
+    // const name= "My-Name-is-Danish";
+    // const result =name.split('-');
+    // console.log(result);
+
+
+//Function 8
+//array toString() ye function array ko string mein convert krdeta hai.
+// const simple_String= fruits.toString();
+// console.log(simple_String);    
+
+//Function 9
+//array join(); ye function bhi toString(); ki tarha hi kaam krta hai pr is mein ek cheez aur hai is mein hum apni marzi ka seperator de sktey hen by default array jb string mein convert hota hai toString() se sb values k between , coma aa rha hota hai jese Danish,Shaikh but ap join ki help se ease " Danish*Shaikh  Danish Shaikh Danish Dk Shaikh"  kr saktey hen.
+    // let simple_String_join=fruits.join(' * ');
+    // simple_String_join=fruits.join(' DK '); //exampple 2
+    // console.log(simple_String_join);
+
+//Function 10
+//array .concat 2 array ko merge kr k new array return krta hai. 
+    // const myGirls = ["Ayesha", "Fatima"];
+    // const myBoys = ["M.Ahmed", "M.Usman", "M.Ali"];
+    // const zikr=["Alhumdulillah" , "Masha Allah"];
+
+    // const myChildren = myGirls.concat(myBoys,zikr);   
+    // console.log(myChildren);
+
+//Function 11 
+//array sort use for sort array alphabetically.
+    // fruits.sort();
+    // console.log(fruits);
+    // //for reverse sorted array descending view
+    // fruits.reverse();
+    // console.log(fruits);
+    
+    //for sorting numbers array we can use below example
+    // const points = [40, 100, 1, 5, 25, 10];
+    // //points.sort(); // ye wala correct sort nahi kre ge number array k liye
+    // points.sort(function(a, b){return a - b});
+    // points.sort(function(a, b){return b - a}); //same trick for descending sort
+    // console.log(points);
+
+//Function 12
+// array indexOf func
+const searchKeyword=fruits.indexOf("Banana");
+console.log(searchKeyword);
+
+</script>
+
+    
+</body>
+</html>
