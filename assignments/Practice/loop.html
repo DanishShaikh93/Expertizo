@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="mytable"></div>
+
+    <form>
+        <input type="text" placeholder="Enter Value" id="myInput">
+        <button onclick="showVal()">Submit</button>
+    </form>
+
+    <script>
+        // for(let i =1; i<=10; i++){
+        //     console.log(i);
+        // }
+
+        
+        // let show_table=document.querySelector(".mytable");
+        
+        // const get_table= +prompt("Please enter table number");
+
+        // for(let i =1; i<=10; i++){ 
+        //     show_table.innerHTML= get_table + " X " + i + " = " + get_table*i 
+        // }
+
+
+        const getInput=document.querySelector("#myInput");
+        function showVal() {
+            getInput.innerHTML=getInput.val;
+            return(getInput);
+        }
+
+        
+    </script>
+
+
+
+</body>
+</html>

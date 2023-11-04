@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .form-sec {
+    text-align: -webkit-center;
+}
+    input{
+    display: block;
+}
+
+.form-sec button {
+    background: #000;
+    color: #fff;
+    padding: 8px 20px;
+    margin-bottom: 20px;
+}
+
+.form-sec input {
+    height: 30px;
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+.form-sec table {
+    width: 80%;
+}
+
+.response {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-family: fantasy;
+}
+
+    </style>
+
+</head>
+<body>
+<div class="form-sec">    
+    
+<h2>User Entry Form</h2>
+    <input type="text" placeholder="Full Name" id="fullName">
+    <input type="email" placeholder="Email Address" id="email">
+    <input type="tel" placeholder="Phone" id="phone">
+    <input type="text" placeholder="Designation" id="designation">
+    <button onclick="getUserInfo();">Submit</button>
+<div class="response"></div>
+
+<table  border="1">
+    <thead><tr>
+        <th>Sr#</th>
+        <th>Full Name</th>
+        <th>Email Address</th>
+        <th>Phone</th>
+        <th>Designation</th>
+     </tr></thead>
+    
+     <tbody id="userInfo">
+
+     </tbody>
+</table>
+</div>
+
+<script>
+ 
+    let sr=0;
+    
+    function getUserInfo(){
+   
+    let fullName=document.querySelector("#fullName");
+    let email=document.querySelector("#email");
+    let phone=document.querySelector("#phone");
+    let designation=document.querySelector("#designation");
+    let response=document.querySelector(".response");
+    let userInfo=document.querySelector("#userInfo");
+    
+    if(fullName.value !== "" && email.value !== "" && phone.value !== "" && designation.value !== ""){
+    sr++;
+        userInfo.innerHTML += 
+          "<tr>" 
+          + "<td>" + sr + "</td>"
+          + "<td>" + fullName.value + "</td>"
+          + "<td>" + email.value + "</td>" 
+          + "<td>" + phone.value + "</td>" 
+          + "<td>" + designation.value + "</td>" +
+          "</tr>";
+          response.innerHTML=" <span style='color:green;'>Record Added Successfully</span>";
+        }else{
+            response.innerHTML=" <span style='color:red;'>Please fill all the fields</span>";
+        }
+             
+    fullName.value="";
+    email.value="";
+    phone.value="";
+    designation.value="";
+          }
+
+</script>
+
+
+</body>
+</html>

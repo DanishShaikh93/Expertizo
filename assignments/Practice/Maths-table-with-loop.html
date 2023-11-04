@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- Example 1 -->
+    <!-- <div class="result"></div>
+
+<script>
+    let which_Table= +prompt("Please enter which table you want to show");
+    let print_table=document.querySelector(".result");
+    for(i=1; i <=10; i++){
+        print_table.innerHTML+= which_Table + " X " + i + " = " + which_Table*i + "<br/>";
+    }
+</script> -->
+
+<!-- Example 2 -->
+<input type="text" placeholder="Please type table number" id="table-value">
+<button onclick="create_Table();">Create Table</button>
+<div class="result"></div>
+
+<script>
+    function create_Table(){
+         
+    let selected_table_num= document.querySelector("#table-value"); 
+    let show_table= document.querySelector(".result");
+
+    show_table.innerHTML = '';
+
+        for (let i = 1; i <= 10; i++) {
+            show_table.innerHTML += selected_table_num.value + " X " + i + " = " + selected_table_num.value*i + "<br/>";              
+        }
+
+        document.querySelector("#table-value").value = '';
+    }
+</script>
+
+
+<!--
+    Sir Code
+    <input type="text" placeholder="Please type number" id="value">
+<button onclick="showVal();">Click Me</button>
+
+<script>
+    const input = document.querySelector('#value');
+
+function showVal(){
+    console.log(input.value);
+    input.value = ''
+}
+</script> -->
+</body>
+</html>
