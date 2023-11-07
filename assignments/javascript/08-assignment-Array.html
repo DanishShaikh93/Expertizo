@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- Question 9 result start  -->
+<div id="result">
+   <h2 style="color:green;">Example 9 Output</h2> 
+    <h2>Top Movies Of 2015</h2></div>
+<div id="array-length"></div>
+<!-- Question 9 result close-->
+
+
+<!-- Question 10 result start  -->
+<div id="result-10">
+    <h2 style="color:green;">Example 10 Output</h2>
+    <h2>Favorite Cars</h2>
+</div>
+<!-- Question 10 result close-->
+
+
+<!-- Question 11 result start  -->
+<div id="result-11">
+    <h2 style="color:green;">Example 11 Output</h2>
+    <h2>Students Result</h2>
+</div>
+<!-- Question 11 result close-->
+
+<!-- Question 12 result start  -->
+<div id="result-12">
+    <h2 style="color:green;">Example 12 Output</h2>
+</div>
+<!-- Question 12 result close-->
+
+
+<!-- Question 13 result start  -->
+<div id="result-13">
+    <h2 style="color:green;">Example 13 Output</h2>
+</div>
+<!-- Question 13 result close-->
+
+
+<!-- Question 14 result start  -->
+<div id="result-14">
+    <h2 style="color:green;">Example 14 Output</h2>
+</div>
+<!-- Question 14 result close-->
+
+<!-- Question 15 result start  -->
+<div id="result-15">
+    <h2 style="color:green;">Example 15 Output</h2>
+</div>
+<!-- Question 15 result close-->
+
+
+    <script>
+
+//01 Question Answer
+
+let blankArray=[];
+
+//02 Question Answer
+
+let studentNames = new Array();
+studentNames[0] = "Alice";
+studentNames[1] = "Bob";
+studentNames[2] = "Charlie";
+
+//03 Question Answer
+
+let fruits=['apple', 'mango', 'watermelon', 'orange'];
+
+//04 Question Answer
+
+let numArray=[123, 456, 789];
+
+//05 Question Answer
+
+let checkBoolean=[ true , false ];
+
+//06 Question Answer
+
+let mixArray=['apple', 'mango', 'watermelon', 'orange', 123, 456, 789, true , false];
+console.log(mixArray);
+
+//07 Question Answer
+let networks=['Telenor','Jazz','Ufone','Zong'];
+
+//08 Question Answer
+let education=['SSC', 'HSC', 'BCS', 'BS', 'BCOM', 'MS','M. Phil.', 'PhD'];
+console.log(education);
+
+//09 Question Answer
+// Declare and initialize an empty array
+var topMovies2015 = [];
+
+// Add movies one by one
+topMovies2015.push("Avengers: Age of Ultron");
+topMovies2015.push("Star Wars: The Force Awakens");
+topMovies2015.push("Jurassic World");
+topMovies2015.push("Inside Out");
+topMovies2015.push("Mad Max: Fury Road");
+
+let result=document.querySelector("#result");
+let arrayLength=document.querySelector("#array-length");
+arrayLength.innerHTML="<h2> Length of the array is: " + topMovies2015.length + "</h2>";
+for(i=0; i< topMovies2015.length; i++){
+    result.innerHTML+=  (i + 1) + ') ' + topMovies2015[i] + "<br>";  
+}
+
+//10 Question Answer
+
+let cars=['Audi', 'Volvo', 'Ford', 'Lamborghini'];
+let getIndex=cars.indexOf("Audi");
+let getIndexValue=cars[0];
+let getLastIndex= cars.length -1;
+let getLastIndexValue= cars[getLastIndex];
+let result10= document.querySelector("#result-10");
+result10.innerHTML +=`<h3>${cars}</h3> <h3>First index of the array: ${getIndex}</h3>
+<h3>Car at the first index of array: ${getIndexValue}</h3>
+<h3>Last index of the array: ${getLastIndex}</h3>
+<h3>Car at last index of the array is: ${getLastIndexValue}</h3>
+`;
+
+//11 Question Answer
+let students=['danish', 'yaseen', 'wajahat'];
+let studentsMarks=[400, 450, 500];
+let result11=document.querySelector("#result-11");
+for(i=0; i< students.length; i++){
+    let studentPercentage= studentsMarks[i] / 500 * 100;
+    result11.innerHTML += `Score of ${students[i]} is ${studentsMarks[i]}. Percentage is  ${studentPercentage} % <br>`;
+}
+
+
+//12 Question Answer
+let result12=document.querySelector("#result-12");
+let colors=['Red', 'Green', 'Blue', 'Yellow','Orange'];
+result12.innerHTML= `<h4>Colors </h4> ${colors}`;
+
+
+//a
+//let userColorSelect1=prompt("Which color you want to add first");
+//colors.unshift(userColorSelect1);
+//result12.innerHTML+= `<h4>After First Color Added </h4> ${colors}`;
+
+//b
+//let userColorSelect2=prompt("Which color you want to add to end");
+//colors.push(userColorSelect2);
+//result12.innerHTML+= `<h4>After Color Added To The End </h4> ${colors}`;
+
+//c
+// let userColorSelect3=prompt("Add 2 more color at the begning of array ");
+// let userColorSelect4=prompt("Add 2 more color at the begning of array ");
+// colors.splice(0,0, userColorSelect3,userColorSelect4);
+// result12.innerHTML+= `<h4>Add 2 more color at the begning of array </h4> ${colors}`;
+
+
+//d
+// colors.shift();
+// result12.innerHTML+= `<h4>After Deleted First Color </h4> ${colors}`;
+
+
+//e
+// colors.pop();
+// result12.innerHTML+= `<h4>After Deleted last Color </h4> ${colors}`;
+
+
+//f
+// let colorToAdd= prompt("Which color you want to add");
+// let color_To_Add_Which_Index= +prompt("In Which Index you want to show your color");
+// colors.splice(color_To_Add_Which_Index, 0 , colorToAdd);
+// result12.innerHTML+= `<h4>New value of color shows according to user choice </h4> ${colors}`;
+
+
+//g
+// let deleteStart=prompt("Type color name where you want to start delete ");
+// let deleteEnd=prompt("Type color name where you want to end delete ");
+// let UserColorIndexStart=colors.indexOf(deleteStart);
+// let UserColorIndexEnd=colors.indexOf(deleteEnd)+1;
+// colors.splice(UserColorIndexStart,UserColorIndexEnd);
+// result12.innerHTML+= `<h4>Color are deleted from array according to user choice range </h4> ${colors}`;
+
+
+
+//13 Question Answer
+
+let studentScore=[320,230,480,120];
+let sortedScore= studentScore.sort();
+let result13=document.querySelector("#result-13");
+result13.innerHTML+=` Score of students: 320,230,480,120 <br> 
+Ordered Scores of Students: ${sortedScore}
+`;
+
+
+//14 Question Answer
+
+let fruit2= ["strawberry", "apple", "orange", "banana"];
+let sortedFruit=fruit2.sort();
+let result14=document.querySelector("#result-14");
+result14.innerHTML+=` Fruit list = strawberry, apple, orange, banana <br> 
+Ordered fruit list: ${sortedFruit}
+`;
+
+
+//15 Question Answer
+let userCities=['karachi', 'lahore', 'islamabad', 'peshawar', 'Quetta'];
+let selectedCities= userCities.slice(0,3) ; //end value barha k leni hai q k ye last range value add nhi krta
+let result15=document.querySelector("#result-15");
+result15.innerHTML+=` Cities list = 'karachi', 'lahore', 'islamabad', 'peshawar', 'Quetta' <br> 
+Selected Cities list: ${selectedCities}
+`
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

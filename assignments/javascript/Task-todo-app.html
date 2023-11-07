@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .app-box {
+            background: #481e00;
+            width: 530px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .app-box input {
+            height: 40px;
+            width: 70%;
+            font-size: 16px;
+            padding-left: 10px;
+        }
+
+        .app-box button {
+            background: #c57600;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-color: #d58000;
+        }
+
+        .app-box button:hover {
+            background: #ff9b07;
+        }
+
+        .list-box {
+            background: #ffec8d;
+            margin: 0 9px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .list-box h3 {
+            color: #000000;
+            font-family: sans-serif;
+            font-size: 30px;
+            font-size: 24px;
+            border-bottom: #000 1px solid;
+            margin-bottom: 20px;
+        }
+
+
+        ul#task-box {
+            list-style: none;
+        }
+
+        ul#task-box li {
+            border-bottom: #000 1px solid;
+            padding-bottom: 12px;
+        }
+
+
+        ul#task-box button {
+            font-size: 14px;
+        }
+
+        ul#task-box span {
+            width: 64%;
+            display: inline-block;
+            text-align: left;
+            font-size: 18px;
+            font-family: sans-serif;
+        }
+
+        .app-box h2 {
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 40px;
+            background: #4e3e25;
+            margin: -20px -20px 30px -20px;
+            padding: 16px;
+        }
+
+        body {
+            background: url(images/bg.jpg);
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+
+        ul#task-box li {
+            padding: 12px 0;
+            background: #22130b;
+            margin-bottom: 1px;
+        }
+
+        ul#task-box span {
+            width: 58%;
+            display: inline-block;
+            text-align: left;
+            font-size: 18px;
+            font-family: sans-serif;
+            color: #fff;
+            padding-left: 10px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-box">
+        <h2>ToDo App</h2>
+        <input type="text" placeholder="Type any word" id="task-title">
+        <button onclick="addTask();">Add Item</button>
+        <div class="list-box">
+            <h3>ToDo List</h3>
+            <ul id="task-box">
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let taskTitle = document.querySelector("#task-title");
+        let taskBox = document.querySelector("#task-box");
+        let taskArray = [];
+
+        //reaptive Code Use Function Start
+        function renderedLoop() {
+            for (i = 0; i < taskArray.length; i++) {
+                taskBox.innerHTML += `<li>
+                <span> ${taskArray[i]}</span>
+                <button onclick="editTask(${i})">Edit</button> 
+                <button onclick="deleteTask(${i})">Delete</button> 
+                </li>`;
+                // console.log(taskArray);
+            }
+        }
+        //Close
+
+        function addTask() {
+            if (taskTitle.value !== "") {
+                taskBox.innerHTML = "";
+                taskArray.push(taskTitle.value);
+                renderedLoop();
+            } else {
+                alert("Field is empty please fill the field and submit again ");
+            }
+            taskTitle.value = "";
+        }
+
+
+        //Delete Task function
+        function deleteTask(i) {
+            taskBox.innerHTML = "";
+            taskArray.splice(i, 1);
+            //console.log(taskArray);
+            renderedLoop();
+        }
+
+
+
+
+        //Edit Task Function
+        function editTask(i) {
+            let updatedTask = prompt("Please enter the updated task");
+            taskBox.innerHTML = "";
+            taskArray.splice(i, 1, updatedTask);
+            renderedLoop();
+        }
+    </script>
+
+
+
+</body>
+
+</html>

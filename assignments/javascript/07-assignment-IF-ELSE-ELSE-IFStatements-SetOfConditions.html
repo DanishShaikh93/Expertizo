@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+ 
+ // 01 Question Answer
+
+ let divisibleNum= +prompt("Enter any number");
+ let checkCond= divisibleNum % 3;
+ if(checkCond=== 0){
+    alert("Provided number is divisible by 3");
+ }else{
+    alert("Provided number is not divisible by 3");
+ }
+
+
+
+
+ // 02 Question Answer
+
+ let checkEvenOdd= +prompt("Enter any number");
+ let checkCond2= checkEvenOdd % 2;
+ if(checkCond2=== 0){
+    alert("Provided number "+ checkEvenOdd +" is even number");
+ }else{
+    alert("Provided number "+ checkEvenOdd +"  is odd number");
+ }
+
+
+
+ 
+// 03 Question Answer 
+
+let userAge= +prompt("Enter your age");
+if(userAge >= 18){
+alert("Old enough");
+}else{
+    alert("Too young");
+}
+
+
+
+
+// 04 Question Answer  
+
+let userName=prompt("Please enter your name");
+let myName=["Danish", "danish"];
+
+if(userName===myName[0] || userName===myName[1]){
+    alert("Welcome " + myName[0] + " nice to see you again");
+}
+
+
+
+
+// 05 Question Answer   
+let divisibleNum2= +prompt("Enter any number");
+ let checkCond5= divisibleNum2 % 3;
+ if(checkCond5=== 0){
+    alert("Provided number is divisible by 3");
+ }else{
+    alert("Provided number is not divisible by 3");
+ }
+
+
+
+ 
+// 06 Question Answer 
+let userInput=prompt("Please type here and check the type of value");
+let caseCheck= userInput.charCodeAt(0);
+if(caseCheck >=65 && caseCheck <=90){
+ alert("Given input is " + userInput + " and its a string Uppercase Alphabet");  
+}else if(caseCheck >=97 && caseCheck <=122){
+    alert("Given input is " + userInput + " and its a string Lowercase Alphabet");
+ }
+ else{
+    alert("Given input is " + userInput + " and its a number");
+ }
+
+
+
+
+// 07 Question Answer 
+
+let userNum1=+prompt("Please type any number");
+let userNum2=+prompt("Please type any number");
+let userOperator=prompt("Please type operator for e.g +, -, *, /, % ");
+
+if(userOperator=="+"){
+    let userCalc= userNum1+userNum2;
+    alert("Answer of " + userNum1 + " + " + userNum2 + " = " + userCalc );
+}
+else if(userOperator=="-"){
+    let userCalc= userNum1-userNum2;
+    alert("Answer of " + userNum1 + " - " + userNum2 + " = " + userCalc );
+}
+else if(userOperator=="*"){
+    let userCalc= userNum1*userNum2;
+    alert("Answer of " + userNum1 + " * " + userNum2 + " = " + userCalc );
+}
+else if(userOperator=="/"){
+    let userCalc= userNum1/userNum2;
+    alert("Answer of " + userNum1 + " / " + userNum2 + " = " + userCalc );
+}
+else if(userOperator=="%"){
+    let userCalc= userNum1%userNum2;
+    alert("Answer of " + userNum1 + " % " + userNum2 + " = " + userCalc );
+}else{
+    alert("Please only type the operator e.g +, -, *, /, %");
+}
+
+
+
+// 08 Question Answer 
+let userTime=+prompt("Please time number between 0000 - 2359");
+
+if(userTime >= 0 && userTime < 1200 ){
+alert("Good Morning");
+}
+else if(userTime >= 1200 && userTime < 1700){
+alert("Good Afternoon");
+}
+else if(userTime >= 1700 && userTime < 2100){
+alert("Good Evening");
+}
+else if(userTime >= 2100 && userTime < 2359){
+alert("Good Night");
+}
+
+
+
+
+// 09 Question Not Clear
+
+
+//10 Question Answer
+
+let userPassword="Danish1234";
+let validatePassword=prompt("Please enter your password");
+if(validatePassword===userPassword){
+    alert("Correct! The password you entered matches the original password");
+}else{
+    alert("Incorrect Password");
+}
+
+
+
+
+//11 Question Answer   
+
+let username="Danish";
+if(username==="Fahad"){
+    alert("Hello " + username);
+}else{
+    alert("Hello Fahad");
+}
+
+
+
+
+//12 Question Answer   
+
+let greeting;
+let hour=13;
+if(hour < 18){
+    greeting= "Good Day";
+    alert(greeting);
+}else{
+    greeting="Good Evening";
+    alert(greeting);
+}
+
+
+
+
+//13 Question Answer
+
+let userInteger1=+prompt("Please type number");  
+let userInteger2=+prompt("Please type number");  
+
+if(userInteger1 > userInteger2){
+    alert(`${userInteger1} is Larger than ${userInteger2}`);
+}
+else if(userInteger1 < userInteger2){
+    alert(`${userInteger2} is Larger than ${userInteger1}`);
+}else{
+    alert(`Both numbers ${userInteger1} and ${userInteger2} are equal`);
+}
+
+
+
+
+//14 Question Answer   
+
+let userNewNum=+prompt("Please type number system will check the number is positive, negative or zero");
+
+if(userNewNum > 0){
+    alert("Provided number is positive");
+}else{
+    alert("Provided number is negative or zero");
+}
+
+
+
+//15 Question Not Clear
+
+//16 Question Answer
+
+let userSelectedVal=44;
+let userValueCheck= userSelectedVal;
+if(typeof userValueCheck == "string"){
+    alert(`${userValueCheck} is a string`);
+}
+else if(typeof userValueCheck == "number"){
+    alert(`${userValueCheck} is a number`);
+}
+else if(typeof userValueCheck == "boolean"){
+    alert(`${userValueCheck} is a bolean`);
+}else{
+    alert(`${userValueCheck} is undefined`);
+}
+
+
+
+
+
+//17 Question Answer
+
+let takeAlphabet=prompt("Type any letter");
+if(takeAlphabet==="a" || takeAlphabet==="e" || takeAlphabet==="i" || takeAlphabet==="o" || takeAlphabet==="u"){
+    alert(`True ${takeAlphabet} is a vowel`);
+}else{
+    alert(`False ${takeAlphabet} is not a vowel`);
+}
+
+
+
+
+//18 Question Answer
+
+if(10 != 8){
+    alert("True");
+}else{
+    alert("False");
+}
+
+
+
+
+
+
+//19 Question Answer
+
+let userMonth=+prompt("Type month number");
+
+if(userMonth == 1){
+    alert("January");
+}else if (userMonth == 2){
+    alert("Fabruary");
+}else if (userMonth == 3){
+    alert("March");
+}else if (userMonth == 4){
+    alert("April");
+}else if (userMonth == 5){
+    alert("May");
+}else if (userMonth == 6){
+    alert("June");
+}else if (userMonth == 7){
+    alert("July");
+}else if (userMonth == 8){
+    alert("August");
+}else if (userMonth == 9){
+    alert("September");
+}else if (userMonth == 10){
+    alert("October");
+}else if (userMonth == 11){
+    alert("November");
+}else if (userMonth == 12){
+    alert("December");
+}else{
+    alert("Invalid Month");
+}
+
+
+//20 Question Unclear
+
+
+</script>
+
+</body>
+</html>

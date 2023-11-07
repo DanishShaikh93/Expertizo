@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<input type="text" placholder="Type here" id="myInput">
+<button onclick="addItem()">Add Item</button>
+
+<ul id="result"></ul>
+
+<script>
+    let myInput=document.querySelector("#myInput");
+    let result=document.querySelector("#result");
+    let itemsArray=[];
+
+    function addItem(){
+     itemsArray.push(myInput.value);
+     for(i=0; i < itemsArray.length; i++){
+        result.innerHTML+=`<li>${itemsArray[i]}
+            <button onclick="deleteItem(i)">Delete</button>
+            <button onclick="editItem">Edit</button>
+            </li>`;
+        myInput.value="";
+     }
+
+    }
+
+    function deleteItem(i) {
+        myInput.value="";
+      console.log("Item Index", itemsArray[i]);  
+     // itemsArray.splice(0,1);
+    }
+
+
+</script>
+
+</body>
+</html>
