@@ -56,6 +56,44 @@
 </div>
 <!-- Question 15 result close-->
 
+<!-- Question 16 result start  -->
+<div id="result-16">
+    <h2 style="color:green;">Example 16 Output</h2>
+</div>
+<!-- Question 16 result close-->
+
+<!-- Question 17 result start  -->
+<div id="result-17">
+    <h2 style="color:green;">Example 17 Output</h2>
+</div>
+<!-- Question 17 result close-->
+
+<!-- Question 18 result start  -->
+<div id="result-18">
+    <h2 style="color:green;">Example 18 Output</h2>
+</div>
+<!-- Question 18 result close-->
+
+<!-- Question 19 result start  -->
+<div id="result-19">
+    <h2 style="color:green;">Example 19 Output</h2>
+    <select  id="dropdown"></select>
+</div>
+<!-- Question 19 result close-->
+
+<!-- Question 20 result start  -->
+<div id="result-20">
+    <h2 style="color:green;">Example 20 Output</h2>
+</div>
+<!-- Question 20 result close-->
+
+
+<!-- Question 21 result start  -->
+<div id="result-21">
+    <h2 style="color:green;">Example 21 Output</h2>
+</div>
+<!-- Question 21 result close-->
+
 
     <script>
 
@@ -213,6 +251,86 @@ let result15=document.querySelector("#result-15");
 result15.innerHTML+=` Cities list = 'karachi', 'lahore', 'islamabad', 'peshawar', 'Quetta' <br> 
 Selected Cities list: ${selectedCities}
 `
+
+
+
+//16 Question Answer
+let arr=["This", "is","my","cat"];
+let arrToString = arr.join(" ");
+let result16=document.querySelector("#result-16");
+result16.innerHTML+=`Convert array to string using join() ${arrToString}`;
+
+
+
+//17 Question Answer
+let fifo=[];
+fifo.push("Out:");
+fifo.push("Keyboard");
+fifo.push("Out:");
+fifo.push("Mouse");
+fifo.push("Out:");
+fifo.push("Printer");
+fifo.push("Out:");
+fifo.push("Monitor");
+
+let fifoOrder= fifo.join("<br>");
+
+let result17=document.querySelector("#result-17");
+result17.innerHTML+=`<p> ${fifoOrder}</p>`;
+
+
+//18 Question Answer
+let fifo2=[];
+
+fifo2.push("Keyboard");
+fifo2.push("Out:");
+fifo2.push("Mouse");
+fifo2.push("Out:");
+fifo2.push("Printer");
+fifo2.push("Out:");
+fifo2.push("Monitor");
+fifo2.push("Out:");
+
+let fifoOrder2=fifo2.reverse();
+
+fifoOrder2= fifo2.join("<br>");
+
+let result18=document.querySelector("#result-18");
+result18.innerHTML+=`<p> ${fifoOrder2}</p>`;
+
+
+//19 Question Answer
+
+let mobCompanies=["Apple","Samsung", "Motorola", "Nokia", "Sony" , "Haier"];
+let dropdown=document.querySelector("#dropdown");
+for(i=0; i<mobCompanies.length; i++){
+    dropdown.innerHTML+=` <option>${mobCompanies[i]}</option>`;
+}
+
+
+//20 Question Answer
+
+let multiArray=[];
+
+multiArray[0]=[123,456,789];
+multiArray[1]=['lion','pigeon','fish'];
+multiArray[2]=[true,false];
+let alignMultiArray=multiArray.join("]<br>[");
+let result20=document.querySelector("#result-20");
+result20.innerHTML+= `Multidimensional Array example output <br> [${alignMultiArray}]`;
+
+
+//21 Question Answer
+
+let multiArray2=[[0,1,2,3],[1,0,1,2],[2,1,0,1]];
+let alignMultiArray01=multiArray2[0].join(" ");
+let alignMultiArray02=multiArray2[1].join(" ");
+let alignMultiArray03=multiArray2[2].join(" ");
+let result21=document.querySelector("#result-21");
+result21.innerHTML+=`<div>${alignMultiArray01}</div>
+<div>${alignMultiArray02}</div>
+<div>${alignMultiArray03}</div>
+`;
 
 
 

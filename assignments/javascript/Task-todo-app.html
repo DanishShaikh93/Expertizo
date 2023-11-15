@@ -169,9 +169,15 @@
         //Edit Task Function
         function editTask(i) {
             let updatedTask = prompt("Please enter the updated task");
+            // console.log(updatedTask);
+            if(updatedTask == null || updatedTask == ""){
+                alert("Field is empty.");
+        }else{
             taskBox.innerHTML = "";
             taskArray.splice(i, 1, updatedTask);
             renderedLoop();
+        }
+
         }
     </script>
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="result">my name is danish</h1>
+    
+<script>
+let result=document.querySelector("#result");
+let sentence="my name is danish";
+
+//let result = [];
+let userSearch=prompt("Find Text").toLocaleLowerCase();
+let userReplace=prompt("Replace with").toLocaleLowerCase();
+let sentenceToArray=sentence.split(" ").join("");
+//console.log(sentenceToArray);
+//let newReplaceWord=[''];
+for(i=0; i<=sentenceToArray.length; i++){
+    userSearchIndex=userSearch.indexOf();
+     sentenceToArray.splice(userSearchIndex, 1, userReplace);
+     console.log(sentenceToArray);
+     //newReplaceWord=sentenceToArray.push(userInput);
+     result.innerHTML= sentenceToArray;
+}
+
+
+</script>
+
+</body>
+</html>

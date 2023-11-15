@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dice-box {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.dice-box button {
+    display: inline-block;
+    margin: 0 auto 20px auto;
+    background: #ab0000;
+    color: #fff;
+    font-size: 23px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border-color: #ab0000;
+    border-width: thick;
+}
+
+.dice-box button:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+    cursor: pointer;
+}
+
+.dice-box h2 {
+    color:#fff;
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-family: cursive;
+}
+
+.dice-box img {
+    height: 300px;
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+body{
+    background: url(images/bg.avif);
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+body:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: -webkit-linear-gradient(to top, #ff0000c9, #000000);
+    background: linear-gradient(to top, #ff0000c9, #000000);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+div#result {
+    color: #fff;
+    font-size: 26px;
+    font-family: cursive;
+    margin-bottom: 15px;
+}
+    </style>
+</head>
+<body>
+
+    <div class="dice-box">
+        <h2>Dice Game</h2>
+        <button onclick="rollDice();">Press the button to roll the dice</button>
+        <button onclick="resetDice();">Reset</button>
+        <div id="result"></div>
+    <img src="images/dice.png" alt="" id="dice-img" onclick="rollDice();">
+    </div>
+    
+<script>
+    //let num = 23.4568;
+// console.log(Number(num));
+// console.log(parseInt(num));
+// console.log(parseFloat(num));
+//console.log(num.toFixed(2));
+//console.log(Math.round(num));
+// console.log(Math.floor(num));
+// console.log(Math.ceil(num));
+//console.log(Math.floor(Math.random()*10));
+//console.log(Math.random()*10);
+let diceImg=document.querySelector("#dice-img");
+let rotationDegree = 0;
+let result=document.querySelector("#result");
+function rollDice(){
+    
+    if(diceImg){
+    rotationDegree += 720;
+diceImg.style.transform= 'rotate(' + rotationDegree + 'deg)';
+diceImg.style.height= "250px";
+}
+
+let selectedNum=Math.floor(Math.random()*6);
+if(selectedNum === 0){
+    result.innerHTML=`You got ${selectedNum + 1} number`;
+diceImg.src= "./images/dice1.png";
+}else if(selectedNum === 1){
+    result.innerHTML=`You got ${selectedNum} number`;
+diceImg.src= "./images/dice1.png";
+}else if(selectedNum === 2){
+    result.innerHTML=`You got ${selectedNum} number`;
+diceImg.src= "./images/dice2.png";
+}else if(selectedNum === 3){
+    result.innerHTML=`You got ${selectedNum} number`;
+diceImg.src= "./images/dice3.png";
+}else if(selectedNum === 4){
+    result.innerHTML=`You got ${selectedNum} number`;
+diceImg.src= "./images/dice4.png";
+}else if(selectedNum === 5){
+    result.innerHTML=`You got ${selectedNum} number`;
+diceImg.src= "./images/dice5.png";
+}else if(selectedNum === 6){
+    result.innerHTML=`You got ${selectedNum} number`;
+diceImg.src= "./images/dice6.png";
+}
+}
+
+function resetDice() {
+    result.innerHTML=``;
+    diceImg.style.transform= "rotate(0deg)";
+diceImg.style.height= "250px";
+diceImg.style.height= "300px";
+    diceImg.src= "./images/dice.png";   
+}
+
+
+</script>
+
+</body>
+</html>
