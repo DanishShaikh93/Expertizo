@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render API</title>
+    <!-- Sab se pehle axios ka link lagana hai -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- sb se pehle ek div bana letey hen -->
+
+    <div class="allProducts d-flex flex-wrap justify-content-between"></div>
+
+
+    <script>
+//aur all product wali div ko javascript mein bula letey hen
+let allProducts= document.querySelector(".allProducts");
+let apiData; //blank variable banaya hai is mein api ka data save krwa k loop mein call krwane k liye.
+
+//phir us k baad api ka link lagana hai
+
+//humare paas API ka sb data data ki key mein aa rha hai is liye hum response k sath .data lagayen gy sirf data select krne k liye.
+axios.get('https://api.escuelajs.co/api/v1/products')
+.then(function (response) {
+
+console.log(response.data); //is k ander sab API ka data aaye ga fetch ho kr response mein
+apiData=response.data;
+//pehle is ko bhi variable mein dal detey hen
+
+
+    //ab hum loop chala kr response.data mein se sb data fetch krwayen gy aur screen pr show krwayen gy.
+
+    //yahan pe hum ne apiData variable tou dia nhi is liye data show nhi huwa
+    for (let i = 0; i < apiData.length; i++) {
+
+        //ab ek ek kr k product title image price wagera sb call krwayen gy loop mein.
+       allProducts.innerHTML+= `
+       
+
+       <div class="card mb-5" style="width: 22%;">
+  <img src="${apiData[i].images[0]}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${apiData[i].title}</h5>
+    <h5 class="card-title">${apiData[i].price}</h5>
+    <p class="card-text">${apiData[i].description}</p>
+    <a href="#" class="btn btn-primary">Add To Cart</a>
+  </div>
+</div>
+
+       `; 
+        
+    }
+
+}).cath(function (err) {
+    console.log(err);   // aur agar API fetch honey mein koi error huwa tou ye error return krega.
+})
+
+
+    </script>
+    
+</body>
+</html>

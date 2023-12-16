@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="cartItemsBox"></div>
+    <button class="backToShop">Back To Shop</button>
+
+    <script>
+        let cartItemsBox= document.querySelector(".cartItemsBox");
+        let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+       //Render cart items function Start
+        function renderCartItems() {
+            if (Array.isArray(cartItems) && cartItems.length > 0) {
+            cartItems.forEach(function(items,id) {
+                cartItemsBox.innerHTML += `
+       <div>
+       <img src="${items.image}" height="100"/>
+       <h3>${items.title}</h3>
+       <h4>${items.price}</h4>
+       <p><button onclick="qtyMinus(${id})">-</button> <span id="qty">${items.qty}</span> <button onclick="qtyPlus(${id})">+</button></p>
+       <button onclick="deleteCartItem(${id})">Delete From Cart</button>
+       </div>
+       `;
+            });
+        } else {
+            cartItemsBox.innerHTML = `Cart is empty`;
+        }
+        }
+
+        renderCartItems();
+        //Render cart items function Close
+
+
+        // Add new key in cartItems[] for calculate the calculate the prices when price increase and decrease fucntion is execute
+cartItems.forEach(item => {
+    item.originalPrice = item.price;
+    console.log(item.originalPrice); // Assuming 'price' is the original price property
+});
+
+        //Increase Product Qunatity Function
+        
+        function qtyPlus(index) {
+            console.log(cartItems[index]);
+            cartItemsBox.innerHTML="";
+            cartItems[index].qty++;
+            cartItems[index].price = cartItems[index].originalPrice * cartItems[index].qty;
+            renderCartItems();
+        }
+
+        //Decrease Product Qunatity Function
+        function qtyMinus(index) {
+            cartItemsBox.innerHTML="";
+            if(cartItems[index].qty === 1){
+                cartItems.splice(index, 1);  
+            }else{
+                cartItems[index].qty--;     
+            }
+            renderCartItems();
+        }
+
+
+        //start delete cart item function
+        function deleteCartItem(index) {
+            cartItemsBox.innerHTML="";
+            cartItems.splice(index,1);
+            renderCartItems();
+            //localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+
+
+        //back to shop function
+        let backToShop=document.querySelector(".backToShop");
+         backToShop.addEventListener('click', ()=>{
+            window.location= 'index.html';
+         })
+
+
+
+    </script>
+
+</body>
+
+</html>

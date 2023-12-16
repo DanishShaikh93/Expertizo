@@ -1,0 +1,26 @@
+.result{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.result div{
+    width:24%;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* .cartItemsBox{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.cartItemsBox div{
+    width:24%;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    text-align: center;
+} */

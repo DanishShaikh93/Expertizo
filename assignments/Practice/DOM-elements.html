@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    let createDiv=document.createElement("DIV");
+    let createPara=document.createElement("P");
+    let createPara2=document.createElement("P");
+    let paraTxt=document.createTextNode("Hello World");
+    createDiv.appendChild(createPara).appendChild(paraTxt);
+    createDiv.appendChild(createPara2).appendChild(paraTxt);
+    console.log(createDiv);
+
+
+    let createUl=document.createElement("UL");
+    let createLi01=document.createElement("LI");
+    let createLi02=document.createElement("LI");
+    let createLi03=document.createElement("LI");
+
+
+    let textLi01=document.createTextNode("Home");
+    let textLi02=document.createTextNode("About");
+    let textLi03=document.createTextNode("Contact Us");
+
+    createUl.appendChild(createLi01).appendChild(textLi01);
+    createUl.appendChild(createLi02).appendChild(textLi02);
+    createUl.appendChild(createLi03).appendChild(textLi03);
+
+    createLi01.setAttribute('class','abc');
+    createLi01.setAttribute('onclick','toDoApp()');
+
+    console.log(createUl);
+
+
+    
+</script>
+
+</body>
+</html>

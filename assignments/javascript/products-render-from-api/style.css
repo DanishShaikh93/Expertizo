@@ -1,0 +1,119 @@
+.header-sec {
+    background: #030303 !important;
+}
+
+.carousel-caption {
+    top: 20%;
+    right: unset;
+    text-align: left;
+    width: 30%;
+}
+
+
+.carousel-caption h2 {
+    font-size: 100px;
+    font-weight: 800;
+    margin-top: -20px;
+}
+
+.carousel-caption .btn {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer-sec {
+    background: #030303;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}
+
+.footer-sec p {
+    margin-bottom: 0;
+}
+
+.footer-sec p small {
+    color: #ffc720;
+    display: block;
+    font-style: italic;
+}
+
+
+
+.card img {
+    height: 241px;
+    width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+
+p.card-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card .price {
+    color: red;
+    font-size: 20px;
+}
+
+.cartPro-box {
+    position: relative;
+    padding-left: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: #efefef 2px solid;
+}
+
+
+.cartPro-box img {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 14px;
+}
+
+
+div#total-price-sec {
+    text-align: right;
+    font-weight: 600;
+}
+
+div#total-price-sec span{
+    color:red;
+}
+
+.cartProductsSec {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.cartProductsSec::-webkit-scrollbar {
+    width: 5px;
+  }
+   
+  .cartProductsSec::-webkit-scrollbar-track {
+ 
+  }
+   
+  .cartProductsSec::-webkit-scrollbar-thumb {
+    background: #eee;
+    width: 5px;
+    border-radius: 45px;
+}
+
+.rm-btn {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.cartPro-box h6 {
+    width: 66%;
+}

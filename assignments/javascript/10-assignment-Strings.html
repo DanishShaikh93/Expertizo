@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="example13">
+        <h1>Example 13</h1>
+    </div>
+    
+<script>
+/*    
+// 01 Question Answer
+
+let firstName=prompt("Enter your first name").toUpperCase();
+let lastName=prompt("Enter your last name").toUpperCase();
+let fullName=firstName+ " " +lastName;
+alert("Welcome " + fullName);
+
+
+
+
+// 02 Question Answer
+let userMobile=prompt("Enter your favourite mobile");
+let calcLength;
+for(let i=0; i<userMobile.length; i++){
+    calcLength = userMobile.length;
+    console.log(`
+    Favourite Mobile is: ${userMobile} \n
+    Length of string: ${calcLength}
+    `);
+}
+
+
+
+
+
+
+// 03 Question Answer
+
+let someString01="Pakistan";
+let findIndex01=someString01.indexOf("n");
+console.log(findIndex01);
+
+
+
+
+
+
+// 04 Question Answer
+
+let someString02="Hello World";
+let findIndex02=someString02.lastIndexOf("l");
+console.log("Last Index of 'l' is : " + findIndex02);
+
+
+
+
+
+
+// 05 Question Answer
+let someString03="Pakistan";
+let findIndex03=someString03[2];
+//let finalString=someString03.indexOf(findIndex03);
+console.log(`String: ${someString03} \n
+Character at index 3 is: ${findIndex03}
+`); 
+
+
+
+
+
+
+// 06 Question Answer
+let firstName2=prompt("Enter your first name").toUpperCase();
+let lastName2=prompt("Enter your last name").toUpperCase();
+let fullName2= firstName2.concat(" ", lastName2);
+alert("Welcome " + fullName2);
+
+
+
+
+
+
+// 07 Question Answer
+//Method 01
+let city="Hyderabad";
+//let replaceWords= city.slice(0,5);
+let replaceWords="Islam";
+let remainingWords= city.slice(5);
+let afterReplaceWords=replaceWords+remainingWords;
+console.log(afterReplaceWords);   
+
+//Method 02
+let city2="Hyderabad";
+let replaceWords2="Islam";
+let cityArr=city2.split("");
+cityArr.splice(0,5, replaceWords2);
+let replaceCity= cityArr.join('');
+console.log(replaceCity);
+
+
+
+
+
+
+
+// 08 Question Answer
+let message="Ali and Sami are best friends. They play cricket and football together.";
+let replaceAndWord= message.replaceAll("and", "&");
+console.log(replaceAndWord);
+
+
+
+
+
+
+// 09 Question Answer
+
+let num01="472";
+console.log(`Value: ${num01} \n
+Type: ${typeof(num01)}` 
+);
+
+let num02= +num01;
+console.log(`\nValue: ${num02} \n
+Type: ${typeof(num02)}` 
+);
+
+
+
+
+
+
+
+// 10 Question Answer
+let getUrl=prompt("Enter Url");
+let removeWWW=getUrl.replaceAll("www.", "");
+console.log(`
+URL: ${getUrl} \n
+Domain: ${removeWWW}
+`);
+
+
+
+
+
+
+
+
+// 11 Question Answer
+let userInput01=prompt("Type any word");
+let afterCaps=userInput01.toUpperCase();
+console.log(`
+User input: ${userInput01} \n
+Upper case: ${afterCaps}
+`);
+
+
+
+
+
+
+
+
+
+// 12 Question Answer
+let userInput02=prompt("Type any word");
+let afterLower=userInput02.toLowerCase();
+console.log(`
+User input: ${userInput02} \n
+Lower case: ${afterLower}
+`);
+
+
+
+
+
+
+
+
+
+//13 Question Answer
+let example13=document.querySelector(".example13");
+let userInput03="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+let userInput03Arr=userInput03.split(" ");
+let wordCapitalize;
+for(let j=0; j<userInput03Arr.length; j++){
+    example13.innerHTML += userInput03Arr[j].charAt(0).toUpperCase() + userInput03Arr[j].substr(1).toLowerCase() + " ";
+}
+
+
+
+
+
+
+
+
+//14 Question Answer
+let num03=33.36;
+let removeDot=num03.toString().replaceAll(".","");
+let covertBackStringToNum=+removeDot;
+console.log(`
+   Number: ${num03} \n
+   Result: ${covertBackStringToNum}`);
+
+
+
+
+
+
+//15 Question Answer
+let a="3";
+let b="3";
+let x=a + b;
+console.log(`
+a is ${a} \n
+b is ${b} \n
+a + b is ${x}
+`);
+
+
+
+
+//16 Question Answer
+let aa="3";
+let bb="3";
+let xx=aa - bb;
+console.log(`
+a is ${aa} \n
+b is ${bb} \n
+a + b is ${xx}
+`);
+
+
+
+
+
+
+//17 Question Answer
+// ASCII code of ! is 33
+// ASCII code of , is 44
+// ASCII code of . is 46
+// ASCII code of @ is 64
+
+let username01=prompt("Enter username");
+let ASCII_num;
+let conditionCheck01=false;
+for(let k=0; k<username01.length; k++){
+    //for checking ever character code in string
+    ASCII_num=username01.charCodeAt(k);
+    if(ASCII_num == 33 || ASCII_num == 44 || ASCII_num == 46 ||  ASCII_num == 64 ){
+conditionCheck01=true;
+    }
+}
+
+if(conditionCheck01 == true){
+    alert("Please Dont Use Special Characters for e.g !,.@");
+}else{
+    alert("Welcome " + username01);
+}
+
+
+
+
+
+
+//18 Question Answer
+let items=["cake", "apple Pie", "cookie", "chips", "patties"];
+let checkItemByUser=prompt("Welcome to bakery what do you want to order?").toLowerCase();
+let isAvailable=false;
+for(let m=0; m<items.length; m++){
+   if(checkItemByUser==items[m]){
+    alert(`${items[m]} is available at index ${m}`);
+    isAvailable=true;
+    break;
+   }
+}
+
+if(isAvailable===false){
+    alert(`We are sorry ${checkItemByUser} is not available at our bakery `);
+
+}
+
+
+
+
+
+
+
+
+//19 Question Answer
+
+let firstString = "cat";
+let secondString = "lion";
+
+    // Compare the strings
+    if (firstString === secondString) {
+      alert("Both strings are equal.");
+    } else if (firstString > secondString) {
+      alert(firstString + " is greater than the " + secondString);
+    } else {
+      alert(secondString + " is greater than the " + firstString);
+    }
+
+
+
+
+
+
+//20 Question Answer
+
+
+
+
+
+//21 Question Answer
+
+let uni="University of Karachi";
+let uniArr= uni.split("");
+console.log(uniArr.join("\n"));
+
+
+
+
+
+
+
+//22 Question Answer
+
+let userInput04=prompt("Enter any word");
+let getLastCharacter=userInput04.slice(-1);
+console.log(`
+User input: ${userInput04} \n
+Last character: ${getLastCharacter}
+`);
+
+
+
+
+
+
+
+
+//23 Question Answer
+
+let secntence="The quick brown fox jumps over the lazy dog";
+let sentenceArr= secntence.toLowerCase().split(" ");
+let countSpecificWord=0;
+
+for(let n=0; n<sentenceArr.length; n++){
+if(sentenceArr[n]==="the"){
+countSpecificWord+=1;
+}
+}
+console.log(`Text:  ${secntence} \n
+There are ${countSpecificWord} of word 'the'
+`);
+
+
+
+
+
+
+
+
+//24 Question Answer
+
+let word01="Pakistan Zindabad";
+let word01Arr=word01.split("");
+let numOfVowels=0;
+let numOfConsonants=0;
+for(let p=0; p<word01Arr.length; p++){
+    if(word01Arr[p]==="a" || word01Arr[p]==="e" || word01Arr[p]==="i" || word01Arr[p]==="o" || word01Arr[p]==="u" ){
+        numOfVowels+=1;
+    }else if(word01Arr[p]===" " ){
+        numOfConsonants+=0;
+    }else if(word01Arr[p]!=="a" || word01Arr[p]!=="e" || word01Arr[p]!=="i" || word01Arr[p]!=="o" || word01Arr[p]!=="u" || word01Arr[p]!=" " ){
+        numOfConsonants+=1;
+    }
+}
+
+console.log(`
+Total Number Of Vowels: ${numOfVowels} \n
+Total Number Of Consonants: ${numOfConsonants}
+`);
+
+*/  
+
+//20 Question Answer
+
+// a. It should contain alphabets and numbers
+// b. It should not start with a number
+// c. It must at least 6 characters long
+
+let userPass="Danish";
+let userPassArr=userPass.split("");
+for(let q=0; q<userPassArr.length; q++){
+
+}
+
+
+</script>
+
+</body>
+</html>

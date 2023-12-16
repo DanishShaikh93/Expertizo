@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<style>
+    .box{
+        width: 20%;
+        border: #ccc 1px solid;
+    }
+</style>
+</head>
+<body>
+
+    <div class="products"></div>
+    
+<script>
+   
+
+//     function rishta(bankBalance) {
+//         return new Promise((resolve, reject) => {
+//             if(bankBalance > 10000){
+//                 resolve ('Shadi Mubarak');
+//             }else{
+//                 reject ('Shadi nahi hui');
+//             }
+//         })
+//     }
+
+
+//    rishta(200000).then(function (res){
+// console.log(res);
+//    }).catch(function(err){
+// console.log(err);
+//    })
+
+let products=document.querySelector(".products");
+
+let apiData;
+
+axios.get('https://fakestoreapi.com/products')
+.then(function (res) {
+    apiData=res.data;
+    console.log(apiData);
+    for(let i=0; i<=apiData.length; i++){
+        products.innerHTML+= `<div class="box"> <h3>${apiData[i].title}</h3>
+        <img src="${apiData[i].image}" height="100">
+        <h3>$${apiData[i].price}</h3>
+        <p>${apiData[i].description}</p>
+        <p>${apiData[i].rating.count}</p>
+        </div>
+        `
+    }
+}).catch(function (err) {
+    console.log(err);
+})
+
+</script>
+
+</body>
+</html>

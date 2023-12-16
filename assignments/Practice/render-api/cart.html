@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <script src="sweetalert2@11.js"></script>
+
+    <style>
+        .itembox {
+            border: #ccc 1px solid;
+            width: 20%;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Checkout Items</h1>
+    <button id="shopMore">Shop More Products</button>
+    <div class="cartList" style="margin-bottom: 40px;"></div>
+
+    <script>
+        let cartData = localStorage.getItem('cartProducts');
+        let cartProducts = JSON.parse(cartData);
+        let cartList = document.querySelector(".cartList");
+
+        function renderCartItems() {
+            if (cartProducts.length > 0) {
+                for (let i = 0; i < cartProducts.length; i++) {
+                    cartList.innerHTML += `
+<div class="itembox">
+${cartProducts[i].brand} <br>
+${cartProducts[i].model} <br>
+${cartProducts[i].ram} <br>
+${cartProducts[i].rom} <br>
+${cartProducts[i].camera} <br>
+${cartProducts[i].price} <br>
+<button onclick="removeFromCart(${i})">Remove</button><br>
+</div>
+`;
+                }
+            } else {
+                cartList.innerHTML = "Cart is empty";
+            }
+        }
+        renderCartItems();
+
+
+
+
+        function removeFromCart(index) {
+            cartList.innerHTML = "";
+
+            cartProducts.splice(index, 1);
+            console.log(cartProducts);
+            //update local storage after deleting the products
+            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+            renderCartItems();
+            Swal.fire({
+                title: "Item is removed from the Cart",
+                text: "Explore more product",
+                icon: "success"
+            });
+
+        }
+
+        let shopMore = document.querySelector("#shopMore");
+        shopMore.addEventListener('click', () => {
+            cartData = localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+            console.log(cartData);
+            window.location = 'index.html';
+        })
+
+        //console.log(cartProducts);
+    </script>
+
+</body>
+
+</html>

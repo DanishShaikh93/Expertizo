@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <input type="text" id="email">
+        <input type="password" id="password">
+        <button>Submit</button>
+    </form>
+
+    <script>
+        let form=document.querySelector("form");
+        let input=document.querySelector("#email");
+        let button=document.querySelector("button");
+       
+        form.addEventListener("submit", function(event){
+       event.preventDefault();
+       let email= input.value;
+       let password= input.value;
+       const localData={
+        username:input.value,
+       }
+        })
+
+
+
+    </script>
+</body>
+</html>

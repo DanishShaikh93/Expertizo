@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="result20">
+        <h2>Result 20</h2>
+    </div>
+
+    <script>
+
+        /*
+        
+        //01 Question Answer
+        function userInfo(username,email,isLogedin) {
+            console.log(`
+            Username: ${username} \n
+            Email: ${email} \n
+            Login Status: ${isLogedin}
+            `);
+        }
+        
+        userInfo("Danish","danish@gmail.com",false);
+        userInfo("Yaseen","yaseen@gmail.com",true);
+        
+        
+        
+        
+        
+        
+        
+        
+        //02 Question Answer
+        function checkDateTime(){
+            let checkDateTime= new Date();
+            console.log(checkDateTime);
+        }
+        
+        checkDateTime();
+        
+        
+        
+        
+        
+        
+        
+        //03 Question Answer
+        let userFirstName=prompt("Enter your first name");
+        let userLastName=prompt("Enter your first name");
+        function greetUser(userFirstName,userLastName) {
+            console.log(`Welcome ${userFirstName} ${userLastName}`);
+        }
+        
+        greetUser(userFirstName,userLastName);
+        
+        
+        
+        
+        
+        
+        
+        
+        //04 Question Answer
+        let userNum01= +prompt("Enter any number");
+        let userNum02= +prompt("Enter any number");
+        function sumNum(userNum01,userNum02) {
+            console.log(userNum01 + userNum02);
+        }
+        
+        sumNum(userNum01,userNum02);
+        
+        
+        
+        
+        
+        //05 Question Answer
+        let userNum03= +prompt("Enter any number");
+        let userNum04= +prompt("Enter any number");
+        let userOperator= prompt("Enter the operator for e.g + - / * % ");
+        function myCalculator(userNum03,userOperator,userNum04) {
+        
+            if(userOperator==="+"){
+                console.log(`
+            ${userNum03 + userNum04} 
+            `);
+            }else if(userOperator==="-"){
+                console.log(`
+            ${userNum03 - userNum04} 
+            `);
+            }else if(userOperator==="/"){
+                console.log(`
+            ${userNum03 / userNum04} 
+            `);
+            }else if(userOperator==="*"){
+                console.log(`
+            ${userNum03 * userNum04} 
+            `);
+            }else if(userOperator==="%"){
+                console.log(`
+            ${userNum03 % userNum04} 
+            `);
+            }else{
+                console.log(`Please provide valid values`);
+            }
+        
+          
+        }
+        
+        myCalculator(userNum03,userOperator,userNum04);
+        
+        
+        
+        
+        
+        
+        //06 Question Answer
+        let userNum05= +prompt("Enter any number to find its square");
+        function findSquare(userNum05) {
+            console.log(`Provided Number Square is ${userNum05 * userNum05}`);
+        }
+        findSquare(userNum05);
+        
+        
+        
+        
+        
+        
+        
+        
+        //07 Question Answer
+        let userNum06= +prompt("Enter number to find its factorial of a number");
+        
+        function findFactorial(abc) {
+            let factorialResult=1;
+            for (let i = userNum06; i >= 1; i--) {
+                factorialResult *= i;  
+            }
+            return factorialResult;
+        }
+        console.log(findFactorial(userNum06));
+        
+        
+        
+        
+        
+        //08 Question Answer
+        let startNumb=+prompt("Type count start number");
+        let endNum=+prompt("Type count end number");
+        function counting() {
+            for (let j = startNumb; j <= endNum; j++) {
+              console.log(j);
+            }
+        }
+        counting();
+        
+        
+        
+        
+        
+        //09 Question Answer
+        let base=+prompt("Type base value");
+        let perpendicular=+prompt("Type perpendicular value");
+        function calculateHypotenuse (base, perpendicular) {
+            
+            let calcHypotenuse= calculateSquare();
+            console.log("" + Math.sqrt(calcHypotenuse));
+            function calculateSquare() {
+                let baseSquare= base * base;
+                let perpendicularSqaure= perpendicular * perpendicular;
+                let calcSquare= baseSquare + perpendicularSqaure;
+                return calcSquare;
+            }
+        }
+        
+        calculateHypotenuse(base,perpendicular);
+        
+        
+        
+        
+        
+        
+        
+        //10 Question Answer
+        function exampleFunction() {
+            console.log("Number of arguments:", arguments.length);
+            for (let i = 0; i < arguments.length; i++) {
+                console.log("Argument", i + 1, ":", arguments[i]);
+            }
+        }
+        
+        exampleFunction(10, 'Hello', true);
+        
+        
+        
+        
+        //11 Question Answer
+        function findLargestNumber() {
+            let largest = 0; // Initialize the largest number with a very small value
+        
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] > largest) {
+                    largest = arguments[i];
+                }
+            }
+        
+            return largest;
+        }
+        
+        // Example usage:
+        let largest = findLargestNumber(10, 5, 20, 8, 15, 50);
+        console.log("The largest number is:", largest);
+        
+        
+        
+        
+        
+        //12 Question Answer
+        //Arguments as Values:
+        function calculateAreaValue(width, height) {
+            return width * height;
+        }
+        
+        // Example usage - passing values directly
+        let area1 = calculateAreaValue(5, 10);
+        console.log("Area calculated using values:", area1);
+        
+        
+        //Arguments as Variables:
+        function calculateAreaVariables(width, height) {
+            return width * height;
+        }
+        
+        // Example usage - passing variables as arguments
+        let rectangleWidth = 7;
+        let rectangleHeight = 12;
+        let area2 = calculateAreaVariables(rectangleWidth, rectangleHeight);
+        console.log("Area calculated using variables:", area2);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //13 Question Answer
+        let unsortedFruits = ['banana', 'apple', 'orange', 'kiwi', 'strawberry'];
+        
+        function sortedArray() {
+            console.log(unsortedFruits.sort());
+        }
+        sortedArray();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //14 Question Answer
+        let numArr=[2,4,10,8,7];
+        
+        function sumNums() {
+            let sumCalc;
+            for (let q = 0; q < numArr.length; q++) {
+               console.log(numArr[q] * q); ;
+            }
+        }
+        sumNums();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //15 Question Answer
+        var param = function inner() { 
+               return typeof inner; 
+        }
+        alert(param()); 
+        
+        
+        
+        
+        
+        
+        //16 Question Answer
+        let cubeOf=2;
+        function findCube() {
+            let cube=cubeOf*cubeOf*cubeOf;
+            console.log(cube);
+        }
+        findCube();
+        
+        
+        
+        
+        
+        
+        
+        //17 Question Answer
+        let diceNum;
+        function dice() {
+          diceNum=Math.ceil(Math.random()*6);
+          console.log("Your dice number is " + diceNum);
+        }
+        
+        dice();
+        
+        
+        
+        
+        
+        
+        //18 Question Answer
+        let xVal=32243;
+        function reverseNum() {
+           let xValToString=xVal.toString().split("").reverse().join("");
+            let xValToInteger= parseInt(xValToString);
+            console.log(xValToInteger);  
+        }
+        
+        reverseNum();
+        
+        
+        
+        
+        //19 Question Answer
+        let userWord=prompt("Type any word for check its palindrome or not");
+        function checkPalindrome() {
+            let reverseWord= userWord.split("").reverse().join("");
+            console.log(reverseWord);
+            if(reverseWord===userWord){
+                console.log(`Provided word ${userWord} is palindrome`);
+            }else{
+                console.log(`Provided word ${userWord} is not palindrome`);
+            }
+        }
+        
+        checkPalindrome();
+        
+        
+        
+        
+        //20 Question Answer
+        let result20=document.querySelector("#result20");
+        let userSentence="the quick brown fox";
+        function capitalFristLetters(userSentence) {
+            let capitalizePara="";
+            let wordInArr=userSentence.split(" ");
+            console.log(wordInArr);
+            for (let p = 0; p < wordInArr.length; p++) {
+                result20.innerHTML += `${wordInArr[p].charAt(0).toUpperCase()}${wordInArr[p].slice(1)} `   
+            }
+        }
+        
+        capitalFristLetters(userSentence);
+        
+        
+        
+        
+        //21 Question Answer
+        let userSentence01="Web Development Tutorial";
+        function findLargeWord(userInput) {
+            let wordInArr02=userInput.split(" ");
+            let maxLetters=0;
+            let largeWord;
+            console.log(wordInArr02);
+            for (let lg = 0; lg < wordInArr02.length; lg++) {
+                if(wordInArr02[lg].length > maxLetters){
+                    maxLetters=wordInArr02[lg].length;
+                    largeWord=wordInArr02[lg];
+                }
+               // console.log(wordInArr02[lg].length);
+               
+            }
+        
+            return(largeWord);
+        }
+        console.log(findLargeWord(userSentence01));
+        
+        
+        
+        
+        
+        
+        //22 Question Answer
+        let userSentence02="The quick brown fox";
+        function countVowels(userSentence02) {
+            let userInputToArr= userSentence02.toLowerCase().split("");
+            console.log(userInputToArr);
+            let totalVowels=0;
+            for (let vw = 0; vw < userInputToArr.length; vw++) {
+               if( userInputToArr[vw] ==="a" || userInputToArr[vw]==="e" || userInputToArr[vw]==="i" || userInputToArr[vw]==="o" ||userInputToArr[vw]==="u"){
+                totalVowels += 1
+            }
+        }
+        return totalVowels;
+        }
+        console.log(countVowels(userSentence02));
+        
+        
+        
+        
+        
+        
+        //23 Question Answer
+        let somevariable;
+        let somevariable2=[];
+        function findTypeOfArg(arg) {
+            return typeof arg;
+        }
+        console.log("Followring argument type is " + findTypeOfArg("Danish"));
+        console.log("Followring argument type is " + findTypeOfArg(30));
+        console.log("Followring argument type is " + findTypeOfArg(true));
+        console.log("Followring argument type is " + findTypeOfArg(toString));
+        console.log("Followring argument type is " + findTypeOfArg(somevariable));
+        console.log("Followring argument type is " + findTypeOfArg(somevariable2));
+        
+        
+        
+        
+        
+        
+        //24 Question Answer
+        // new Sat() delete the copy value in array and return unique values
+        // let numbers = [1, 2, 3, 3, 4, 5, 5];
+        //     let uniqueNumbers = [...new Set(numbers)];
+        //     console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
+        let exampleString01="thequickbrownfoxjumpsoverthelazydog";
+        function uniqueLetters(exampleString01) {
+            let userInputToArr= exampleString01.split("");
+            //console.log(userInputToArr);
+            let uniqueLetters=[...new Set(userInputToArr)];
+            return uniqueLetters.join("");
+        }
+        
+        console.log(uniqueLetters(exampleString01));
+        
+        
+        
+        
+        
+        
+        //25 Question Answer
+        let sometext="JSResourceS.com".toLowerCase();
+        let repeativeLetter="o".toLowerCase();
+        let occurrences;
+        function repeatLetterCount(repeativeLetter, occurrences) {
+            occurrences= sometext.split(repeativeLetter).length -1;
+            let finalResult = `The number of occurrences of "${repeativeLetter}" is ${occurrences}`; 
+            return finalResult
+        }
+        console.log(repeatLetterCount(repeativeLetter,occurrences));
+        
+        
+        
+        
+     
+
+
+        //26 Question Answer
+        let curYear = new Date().getFullYear();
+        function findAge(curYear, birthYear) {
+            let userBirthYear = new Date(birthYear).getFullYear();
+            // curYear = curDate;
+            let age= curYear-userBirthYear;
+            let finalResult01= `Current Year is ${curYear}\nand Birth Year is ${userBirthYear}\nThey are either ${age-1} or ${age}`;
+            return finalResult01;
+
+        }
+       console.log( findAge(curYear,"1993"));
+
+
+
+
+
+
+        //27 Question Answer
+       const fav_food = "Oreo biscuits";
+        const max_age = 85;
+        function calculateSupply(age, amount) {
+            const remaining_age = max_age - age;
+            const total_spend_amount = remaining_age * amount;
+
+            const finalResult04 = `
+  Favourit Snack: ${fav_food}
+  Current Age:  ${age}
+  Estimated Maximum Age: ${max_age}
+  Amount of snack per day:  ${amount}
+  You will spend ${Math.floor(total_spend_amount)} PKR  for ${fav_food} to last you until the rip old age of ${max_age}`;
+
+            return finalResult04;
+
+        }
+        console.log(calculateSupply(15,2));
+        console.log(calculateSupply(20,2.5));
+
+
+
+        
+
+
+//28 Question Answer
+        function calcCircumference(radius) {
+    let circumference = 2 * Math.PI * radius;
+    console.log(`The circumference is ${circumference.toFixed(2)}`);
+}
+
+function calcArea(radius) {
+    let area = Math.PI * radius * radius;
+    console.log(`The area is ${area.toFixed(2)}`);
+}
+
+// Example usage:
+calcCircumference(5); // Calculate circumference for radius 5
+calcArea(5); // Calculate area for radius 5
+
+
+
+
+
+
+
+ //29 Question Answer
+ //a
+ let celsius=20;
+ function celsiusToFahrenheit(celsius) {
+    let fahrenheit= (celsius * 9/5) + 32;
+    let finalResult02= `${celsius}°C is ${fahrenheit}°F`;
+    return finalResult02;
+ }
+ console.log(celsiusToFahrenheit(celsius));
+
+ //b
+ let fahrenheit01=20;
+ function fahrenheitToCelsius(fahrenheit01) {
+    let celsius01= (fahrenheit01 - 32) * 5/9;
+    let finalResult03=`${fahrenheit01}°F is ${celsius01}°C`;
+    return finalResult03;
+ }
+console.log(fahrenheitToCelsius(fahrenheit01));
+
+  */
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

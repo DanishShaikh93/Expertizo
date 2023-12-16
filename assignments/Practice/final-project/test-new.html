@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ let fruits = [
+  { id: 1, title: "apple", price: 1.0 },
+  { id: 2, title: "orange", price: 0.8 },
+  { id: 3, title: "banana", price: 0.6 },
+  { id: 1, title: "apple", price: 1.0 },
+  { id: 2, title: "orange", price: 0.8 },
+];
+
+// Create an array to store unique objects with counts
+let uniqueFruits = [];
+
+// Loop through each element in the fruits array
+fruits.forEach(function(fruit) {
+  // Check if there is a duplicate object based on the "title" property
+  const duplicateIndex = uniqueFruits.findIndex(item => item.id === fruit.id);
+  if (duplicateIndex !== -1) {
+    // If a duplicate is found, increment the count property
+    uniqueFruits[duplicateIndex].count++;
+  } else {
+    // If it's not a duplicate, add a new count property and push the object to the unique array
+    uniqueFruits.push({ ...fruit, count: 1 });
+    //console.log(fruit);
+  }
+});
+
+// Iterate over the unique objects and display them with counts
+for (let i = 0; i < uniqueFruits.length; i++) {
+  const fruit2 = uniqueFruits[i];
+  console.log(`${fruit2.title} (ID: ${fruit2.id}): ${fruit2.count}`);
+  console.log(fruit2);
+}
+
+
+
+
+    </script>
+</body>
+</html>

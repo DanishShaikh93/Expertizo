@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+/*
+//01 Question Answer
+let userNum01=prompt("Enter any number");
+console.log(` Number: ${Number(userNum01)}`);
+console.log(` Round of value: ${Math.round(userNum01)}`);
+console.log(` Floor value: ${Math.floor(userNum01)}`);
+console.log(` Ceil value: ${Math.ceil(userNum01)}`);
+
+
+
+
+//02 Question Answer
+let userNum02=prompt("Enter any number");
+console.log(` Number: ${Number(userNum02)}`);
+console.log(` Round of value: ${Math.round(userNum02)}`);
+console.log(` Floor value: ${Math.floor(userNum02)}`);
+console.log(` Ceil value: ${Math.ceil(userNum02)}`);
+
+
+
+
+
+//03 Question Answer
+let userNum03=prompt("Enter any number");
+console.log(` Number: ${Number(userNum03)}`);
+console.log(` Round of value: ${Math.round(userNum03)}`);
+console.log(` Floor value: ${Math.floor(userNum03)}`);
+console.log(` Ceil value: ${Math.ceil(userNum03)}`);
+
+
+
+
+
+//04 Question Answer
+let userNum04=prompt("Enter any number");
+console.log(` Number: ${Number(userNum04)}`);
+console.log(` Round of value: ${Math.round(userNum04)}`);
+console.log(` Floor value: ${Math.floor(userNum04)}`);
+console.log(` Ceil value: ${Math.ceil(userNum04)}`);
+
+
+
+
+
+//05 Question Answer
+let userNum05=prompt("Enter any number");
+console.log(` The absolute value of ${userNum05} is ${Math.abs(userNum05)}`);
+
+
+
+
+
+//06 Question Answer
+let diceValue=Math.floor(Math.random()*10);
+console.log(`Random dice value: ${diceValue}`);
+
+
+
+
+
+//07 Question Answer
+let toss=Math.floor(Math.random()*2);
+if(toss===0){
+    console.log(`${toss+1} random coin value: Tails`);
+}else if(toss===1){
+    console.log(`${toss+1} random coin value: Heads`);
+}
+
+
+
+
+
+//08 Question Answer
+let randNum=Math.floor(Math.random()*100);
+console.log(`Random number between 1 and 100: ${randNum}`);
+
+
+
+
+
+
+//09 Question Answer
+let userWeight=prompt("Type your weight");
+console.log(`The weight of user is ${parseFloat(userWeight)} Kilogram`);
+
+
+
+
+
+//10 Question Answer
+let secretNum=Math.floor(Math.random()*10);
+let userNum06= +prompt("Type any number between 1 and 10");
+if(userNum06===secretNum){
+console.log(`Congrats your number match with secret number`);
+}else{
+    console.log(`Try Again`);
+}
+
+
+
+
+
+//11 Question Answer
+let curDate= new Date();
+console.log(curDate);
+
+
+
+
+
+//12 Question Answer
+let monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+let curMonth= new Date();
+
+console.log(monthNames[curMonth.getMonth()]);
+
+
+
+
+
+//13 Question Answer
+let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let curDay=new Date();
+console.log(`Today is ${dayNames[curDay.getDay()]}`);
+
+
+
+
+
+//14 Question Answer
+let dayNames01 = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let todayDate= new Date();
+let curDay01=dayNames01[todayDate.getDay()];
+if(curDay01==="Sat" || curDay01==="Sun"){
+    console.log(`Its Fun day`);
+}else{
+    console.log(`Its ${curDay01}`);
+}
+
+
+
+
+//15 Question Answer
+let check15Days=new Date();
+let getDays=check15Days.getDate();
+if(getDays > 1 && getDays <= 15){
+    console.log(`First 15 days of the month`);
+}else if(getDays > 15 && getDays <= 31){
+    console.log(`Last 15 days of the month`);
+}
+
+
+
+
+
+
+//16 Question Answer
+let getCurDate= new Date();
+console.log(`Current Date: ${getCurDate} \n`);
+let getTotalMilliseconds= getCurDate.getTime();
+console.log(`Elapsed milliseconds since january 1, 1970: ${getTotalMilliseconds}`);
+let getTotalMinutes= getTotalMilliseconds / 1000 / 60;
+console.log(`Elapsed minutes since january 1, 1970: ${getTotalMinutes}`);
+
+
+
+
+
+//17 Question Answer
+let getCurDate01= new Date();
+let getCurHour= getCurDate01.getHours();
+console.log(`${getCurHour}`);
+if(getCurHour >= 0 && getCurHour < 12){
+    console.log(`It's AM`);
+}else{
+    console.log(`It's PM`); 
+}
+
+
+
+
+
+//18 Question Answer
+let getCurDate02= new Date("Dec 31 2020");
+console.log(`Later date: ${getCurDate02}`);
+
+
+
+
+
+
+//19 Question Answer
+let ramadanDate=new Date("June 18, 2015").getTime();
+let getCurDate03=new Date().getTime();
+let dayPast= ramadanDate;
+dayPast= getCurDate03- dayPast;
+console.log(`${Math.ceil(dayPast / 1000 / 60 / 60 / 24)} days have passed since 1st Ramadan, 2015`);
+
+
+//For checking only
+// let totalHours= Math.ceil(dayPast / 1000 / 60 / 60 );
+// let sleepingTime= Math.ceil(dayPast / 1000 / 60 / 60 / 8);
+// let final = totalHours - sleepingTime;
+// console.log(`Total Hours ${totalHours}`);
+// console.log(`Sleeping Hours ${sleepingTime}`);
+// console.log(`Sleeping Days ${Math.ceil(sleepingTime / 24)}`);
+// console.log(`Remaining Hours ${final}`);
+// console.log(`Remaining working days ${Math.ceil(final / 24)}`);
+// let sumDays= Math.ceil(sleepingTime / 24) + Math.ceil(final / 24)
+// console.log(`Total days of life ${sumDays}`);
+
+
+
+
+
+//20 Question Answer
+let refDate=new Date("dec 05, 2015").getTime();
+let getCurDate04=new Date().getTime();
+let dayPast01= refDate;
+dayPast01= getCurDate04- dayPast01;
+console.log(`${Math.ceil(dayPast01 / 1000 / 60 / 60 / 24)} days have passed since 1st Ramadan, 2015`);
+
+
+
+
+
+
+
+//21 Question Answer
+// Create a Date object for the current date and time
+let currentDate = new Date();
+
+// Display the current date object and hour
+console.log(`Current date ${currentDate}`);
+
+// Extract the hours
+let currentHours = currentDate.getHours();
+
+// Reset the date object 1 hour ago form current date
+currentDate.setHours(currentHours + 1);
+
+// Display the date object 1 hour ago
+console.log(`1 hour ago it was ${currentDate}`);
+
+
+
+
+
+
+
+//22 Question Answer
+// Create a Date object for the current date and time
+let currentDate01 = new Date();
+
+console.log(`Current Date ${currentDate01}`);
+
+//Extract year
+let currentYear=currentDate01.getFullYear();
+
+
+//Reset the date object to show 100 years back Date and Time
+currentDate01.setFullYear(currentYear - 100);
+
+console.log(`100 years back it was ${currentDate01}`);
+
+
+
+
+
+
+//23 Question Answer
+
+let userAge= +prompt("Enter your age");
+let currentDate02= new Date();
+let currentYear01=currentDate02.getFullYear(); 
+console.log(`Your age is ${userAge}`);
+console.log(`Your birth year is ${currentYear01 - userAge}`);
+
+
+
+
+
+
+//24 Question Answer
+let monthNames01 = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+let customerName="Danish Shaikh";
+let currentMonth= new Date().getMonth();
+let numberOfUnits=450;
+let chargesOfUnit=14;
+let netAmoutDueDate= numberOfUnits * chargesOfUnit;
+let afterDueCharges=500;
+let netAmoutAfterDueDate=netAmoutDueDate + afterDueCharges;
+console.log(`Customer Name: ${customerName}`);
+console.log(`Current Month: ${monthNames01[currentMonth]}`);
+console.log(`Number of units: ${numberOfUnits}`);
+console.log(`Charges per unit: ${chargesOfUnit}`);
+console.log(`Net Amount Payable (within Due Date): ${netAmoutDueDate}`);
+console.log(`Late Payment Surcharge: ${afterDueCharges}`);
+console.log(`Gross Amount Payable (after Due Date): ${netAmoutAfterDueDate}`);
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

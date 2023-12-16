@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.bundle.min.js"></script> -->
+    <script src="sweetalert2@11.js"></script>
+
+    <style>
+        .itembox {
+    border: #ccc 1px solid;
+    width: 20%;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+    </style>
+</head>
+<body>
+
+ <div class="result" style="margin-bottom: 40px;"></div>  
+ <button id="cart-btn">Proceed to cart</button> 
+
+    <script>
+        let result=document.querySelector(".result");
+        const phones = [
+    {
+        brand: 'Samsung',
+        model: 'S20',
+        ram: 8,
+        rom: 256,
+        camera: '20 megapixel',
+        price: 15000
+    },
+    {
+        brand: 'Xiomi',
+        model: 'note10',
+        ram: 4,
+        rom: 64,
+        camera: '10 megapixel',
+        price: 15000
+    },
+    {
+        brand: 'Infinix',
+        model: 'z10',
+        ram: 2,
+        rom: 16,
+        camera: '5 megapixel',
+        price: 15000
+    },
+    {
+        brand: 'Tecno',
+        model: 'spark10',
+        ram: 12,
+        rom: 512,
+        camera: '25 megapixel',
+        price: 15000
+    },
+    {
+        brand: 'Iphone',
+        model: '14',
+        ram: 4,
+        rom: 1024,
+        camera: '30 megapixel',
+        price: 15000
+    },
+    {
+        brand: 'Oppo',
+        model: 'F11',
+        ram: 8,
+        rom: 256,
+        camera: '20 megapixel',
+        price: 15000
+    },
+    {
+        brand: 'Vivo',
+        model: 'y20',
+        ram: 4,
+        rom: 64,
+        camera: '8 megapixel',
+        price: 15000
+    },
+    {
+        brand: 'Abdullah',
+        model: 's50',
+        ram: 50,
+        rom: 1024,
+        camera: '60 megapixel',
+        price: 300000
+    },
+
+]
+
+
+for (let i = 0; i < phones.length; i++) {
+result.innerHTML += `
+<div class="itembox">
+${phones[i].brand} <br>
+${phones[i].model} <br>
+${phones[i].ram} <br>
+${phones[i].rom} <br>
+${phones[i].camera} <br>
+${phones[i].price} <br>
+<button onclick="addToCart(${i})">Add To Cart</button><br>
+</div>
+`;
+}
+
+let cartItems=localStorage.getItem('cartProducts');
+let cartItemsToObj= JSON.parse(cartItems);
+console.log(cartItemsToObj);
+
+//new array variable which stores add carts products
+let itemArr=[];
+function addToCart(index) {
+
+    Swal.fire({
+  title: "Item Added To Cart",
+  text: "Explore more product or proceed to chekout",
+  icon: "success"
+});
+
+    console.log(`${phones[index]}`);
+    itemArr.push(phones[index]);
+    console.log(itemArr);
+}
+
+
+let cartBtn=document.querySelector("#cart-btn");
+cartBtn.addEventListener('click',   function saveObjLocaly() {
+    if(cartItemsToObj.length > 0){ 
+        let combineBothData= [...cartItemsToObj,...itemArr]
+        localStorage.setItem('cartProducts', JSON.stringify(combineBothData));
+    window.location='cart.html'
+    }else if(itemArr.length > 0){ 
+        localStorage.setItem('cartProducts', JSON.stringify(itemArr));
+    window.location='cart.html'
+    }else{
+
+        Swal.fire({
+  title: "Cart is empty",
+  text: "There is no product added in the cart",
+  icon: "error"
+});
+
+    }
+    
+})
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

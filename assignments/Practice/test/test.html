@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <div class="result01">
+        <h2>Answer 1</h2>
+    </div>
+
+    
+    <div class="result02">
+        <h2>Answer 2</h2>
+    </div>
+
+
+    <div class="result03">
+        <h2>Answer 3</h2>
+    </div>
+
+    <div class="result04a">
+        <h2>Answer 4b</h2>
+    </div>
+
+    <div class="result04b">
+        <h2>Answer 4b</h2>
+    </div>
+
+    <div class="result04c">
+        <h2>Answer 4c</h2>
+    </div>
+
+    <div class="result05">
+        <h2>Answer 5</h2>
+    </div>
+
+
+    <div class="result06">
+        <h2>Answer 6</h2>
+    </div>
+
+
+    <script>
+        //Answer 01
+        let result01=document.querySelector(".result01");
+        let fruits=["apple","banana","mango","orange","strawberry"];
+        for (let i = 0; i < fruits.length; i++) {
+            result01.innerHTML += `Element at index ${i} is ${fruits[i]} <br>`
+            
+        }
+
+
+        //Answer 02
+        // let result02=document.querySelector(".result02");
+        // let items=["cake", "apple pie", "cookie", "chips", "patties"];
+        // let error=0;
+        // let userInput=prompt("Welcome to ABC bakery. What do want to order sir/ma'am?");
+
+        // for (let j = 0; j < items.length; j++) {
+        //     if(userInput===items[j]){
+        //         result02.innerHTML += `${items[j]} is available at index ${j} in our bakery `;
+        //         error=1;
+        //         break;
+        //     }
+        // }
+
+        // if(error!==1){
+        //     result02.innerHTML += `${userInput} is not available in our bakery `; 
+        // }
+
+
+        //Answer 03
+        // let result03=document.querySelector(".result03");
+        // let scores=[12,45,3,22,34,50];
+        // let userInput01=+prompt("Enter stop value"); 
+        // for (let k = 0; k < scores.length; k++) {
+        //     if(userInput01===scores[k]){
+        //         result03.innerHTML+=`${scores.slice(1,k +1)}`;
+        //     }
+            
+        // }
+        
+
+
+
+        //Answer 04
+        //a
+        // let result04a=document.querySelector(".result04a");
+        // let stars="*****";
+        // let userInput02=+prompt("Type number of lines");
+        // for (let st = 1; st <= userInput02; st++) {
+        //     result04a.innerHTML += `${stars} <br>`;
+            
+        // }
+
+
+        //b
+        // let result04b=document.querySelector(".result04b");
+        // let userStarValue= +prompt("Type star quantity");
+        // let star="*";
+        // let repeatStar;
+        // for (let cd = 1; cd <= userStarValue; cd++) {
+        //   repeatStar=star.repeat([cd]);
+        //   result04b.innerHTML+=` ${repeatStar} ${[cd]}<br>`;   
+        // }
+
+
+
+        //c
+        // let result04c=document.querySelector(".result04c");
+        // let userStarValue= +prompt("Type star quantity");
+        // let star="*";
+        // let repeatStar;
+        // for (let cd = userStarValue; cd > 0; cd--) {
+        //   repeatStar=star.repeat([cd]);
+        //   result04c.innerHTML+=` ${repeatStar} ${[cd]}<br>`;   
+        // }
+
+
+
+        //Answer 05
+        // let result05=document.querySelector(".result05");
+        // let userNum01=+prompt("Enter first number");
+        // let userNum02=+prompt("Enter first number");
+        // let operator=prompt("Enter operator");
+
+        // if(operator==="+"){
+        //     result05.innerHTML+=`Answer of  ${userNum01} +  ${userNum02} is  ${userNum01 + userNum02}`;
+        // }else if(operator==="-"){
+        //     result05.innerHTML+=`Answer of  ${userNum01} -  ${userNum02} is  ${userNum01 - userNum02}`;
+        // }else if(operator==="*"){
+        //     result05.innerHTML+=`Answer of  ${userNum01} x  ${userNum02} is  ${userNum01 * userNum02}`;
+        // }else if(operator==="/"){
+        //     result05.innerHTML+=`Answer of  ${userNum01} /  ${userNum02} is  ${userNum01 / userNum02}`;
+        // }
+
+        //Answer 06
+        // let result06=document.querySelector(".result06");
+        // let userword=prompt("Please type any word to check its palindrome or not");
+        // userwordToArr=userword.split("").reverse().join("");
+        // console.log(userwordToArr);
+        // if(userword===userwordToArr){
+        //  result06.innerHTML+=`Provided word is Palindrome`;
+        // }else{
+        //     result06.innerHTML+=`Provided word is not Palindrome`;
+        // }
+
+        //Answer 07
+        // (0°C × 9/5) + 32 = 32°F
+        // f to c
+        // (32°F − 32) × 5/9 = 0°C
+        let celcius=20;
+        function celciusToFahrenheit(celcius) {
+            let fahrenheit= (celcius * 9/5) + 32;
+            return fahrenheit;
+        }
+        console.log(celciusToFahrenheit(celcius));
+
+
+        let fahrenheit=20;
+        function fahrenheittoCelcius(fahrenheit) {
+            let celcius= (fahrenheit - 32) * 5/9;
+            return celcius;
+        }
+        console.log(fahrenheittoCelcius(fahrenheit));
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <header class="p-3 bg-dark text-white header-sec">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-evenly">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <img src="images/logo.png" height="100" alt="">
+        </a>
+
+        <ul class="nav col-12 col-lg-6 justify-content-end ">
+          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About Store</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">New Arrivals</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Customer Reviews</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Latest News</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Contact Us</a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- start slider -->
+  <!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+  </div>
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/sl.jpg" alt="Los Angeles" class="d-block w-100">
+      <div class="carousel-caption">
+        <h4>Pretty Looks</h4>
+        <h2>30% OFF</h2>
+        <h3>T-Shirts & Men Winter Hoods</h3>
+        <p>Magnis dis parturient convallis posuere morbi leo urna molestie at elementum nim praesent elementum facilisis leo.</p>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Shop Now</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/sl2.jpg" alt="Chicago" class="d-block w-100">
+      <div class="carousel-caption">
+        <h4>Pretty Looks</h4>
+        <h2>30% OFF</h2>
+        <h3>T-Shirts & Men Winter Hoods</h3>
+        <p>Magnis dis parturient convallis posuere morbi leo urna molestie at elementum nim praesent elementum facilisis leo.</p>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Shop Now</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/sl3.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-caption">
+        <h4>Pretty Looks</h4>
+        <h2>30% OFF</h2>
+        <h3>T-Shirts & Men Winter Hoods</h3>
+        <p>Magnis dis parturient convallis posuere morbi leo urna molestie at elementum nim praesent elementum facilisis leo.</p>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Shop Now</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/sl4.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-caption">
+        <h4>Pretty Looks</h4>
+        <h2>30% OFF</h2>
+        <h3>T-Shirts & Men Winter Hoods</h3>
+        <p>Magnis dis parturient convallis posuere morbi leo urna molestie at elementum nim praesent elementum facilisis leo.</p>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Shop Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+  <!-- close slider -->
+
+
+    <div class="container">
+      <div class="text-center mt-5 mb-5"><h2>Render Products From API </h2></div>
+        <div class="product-sec d-flex flex-wrap justify-content-around mb-5"></div>
+    </div>
+
+    <div class="container">
+  
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Cart Items</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+        
+          <div class="cartProductsSec">
+
+          </div>
+           <div id="total-price-sec"></div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" >Proceed To Checkout</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Shop More</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+        
+
+        
+    </div>
+
+    <div class="container-fluid footer-sec">
+      <p>© 2023 D-Store. All Rights Reserved <small>Design & Developed By Danish Shaikh</small></p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   
+ 
+</body>
+</html>

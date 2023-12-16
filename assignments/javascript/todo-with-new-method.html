@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="Type task" id="taskField">
+    <button onclick="addTask()">Submit</button>
+    <ul class="taskList"></ul>
+
+    <script>
+        let taskField=document.querySelector("#taskField");
+        let taskList=document.querySelector(".taskList");
+
+
+        function addTask() {
+          let createLI=document.createElement("LI");
+          let liTxt=document.createTextNode(taskField.value);
+
+          //create edit button
+          let editBtn=document.createElement("BUTTON");
+          let editBtnTxt=document.createTextNode("Edit");
+          editBtn.setAttribute("onclick","editTask(this)");
+
+          //create delete button    
+          let deleteBtn=document.createElement("BUTTON");
+          let deleteBtnTxt=document.createTextNode("Delete");
+          deleteBtn.setAttribute("onclick","deleteTask(this)");
+
+         //merge LI and buttons with text
+          createLI.appendChild(liTxt);
+          createLI.appendChild(editBtn);
+          editBtn.appendChild(editBtnTxt);
+          createLI.appendChild(deleteBtn);
+          deleteBtn.appendChild(deleteBtnTxt);
+
+          //final added value
+          taskList.appendChild(createLI);
+
+            taskField.value="";
+        }
+
+        function editTask(element) {
+            //console.log(element.parentNode);
+            let updatedTask=prompt("Enter Updated Task");
+            let selectTaskLi=element.parentNode;
+            console.log(selectTaskLi);
+            selectTaskLi.firstChild.nodeValue=updatedTask;      
+        }
+
+        function deleteTask(element) {
+          let selectToDel=element.parentNode.parentNode;
+          selectToDel.removeChild(element.parentNode);
+        }
+
+
+    </script>
+
+    
+</body>
+</html>

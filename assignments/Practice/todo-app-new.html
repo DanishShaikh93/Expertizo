@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ToDo App</h1>
+    <input type="text" placeholder="type todo" id="todoField">
+    <button onclick="addTodo()">Submit</button>
+    <ul></ul>
+
+
+    <script>
+        let todoField=document.querySelector("#todoField");
+        function addTodo() {
+            todoField.innerHTML=todoField.value;
+            console.log(todoField.value);
+            todoField.value=""
+        }
+    </script>
+</body>
+</html>
