@@ -1,0 +1,185 @@
+.App {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background:url(./main-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.correctAnswer{
+  background: green !important;
+  color: #fff;
+}
+
+.wrongAnswer{
+  background: red !important;
+  color: #fff;
+}
+
+.error {
+  background: red;
+  color: #fff;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: auto !important;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.quizBOx {
+  background: #fff;
+  width: 70%;
+  padding: 30px;
+  text-align: left;
+  position: relative;
+}
+
+.error:empty{
+  padding: 0;
+  margin: 0;
+}
+
+.topInfo h2 {
+  margin: 0;
+}
+
+.topInfo h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #ff669b;
+}
+
+.topInfo h4 strong {
+  color: #007afb;
+}
+
+.totalMarks {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #0076cd;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.quiz-anime {
+  display: flex;
+  align-items: center;
+}
+
+.answerList {
+  display: flex;
+}
+
+.loadingImg{
+  position: absolute;
+  top: 36%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 100px;
+}
+
+.fieldsSec {
+  width: 70%;
+}
+
+.fieldsSec div {width: 95%;}
+
+.answerList label {
+  background: #ffdb76;
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+
+.highlight {
+  cursor: pointer;
+  background: #49acb6 !important;
+    color: #fff !important;
+}
+
+.questionBox h2 {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.actionFooter {
+  margin-top: 30px;
+}
+
+.actionFooter button {
+  background: #34a542;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.actionFooter button:hover {
+  background: #71c65d;
+}
+
+.resultPage {
+  background: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+h2:empty{
+ margin: 0;
+}
+
+.resultPage h3 {
+  margin-bottom: 0;
+}
+
+.resultPage h2 {
+  color: #ed027d;
+  margin-top: 0;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

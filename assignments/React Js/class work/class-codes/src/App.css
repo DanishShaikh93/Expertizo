@@ -1,0 +1,95 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* new css */
+.web-bg{
+  background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.web-bg span {
+  transition: all 0.5s ease-in-out;
+  font-family: 'Monoton', sans-serif;
+  color: #000;
+  font-size: 70px;
+  border-bottom: #000 10px double;
+}
+
+.colorShade{
+  color: #fff !important;
+  border-color:#fff  !important;
+}
+
+
+
+.bulb-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.bulbBtn{
+  width: 240px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.bulb-shadow{
+  background-image: url(./bulb-shadow.png);
+}
+
+#bulb-shadow {
+  content: '';
+  background-image: url(http://localhost:3000/static/media/bulb-shadow.3f6ea6b0f65a08e62f4c.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

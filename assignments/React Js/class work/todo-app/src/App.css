@@ -1,0 +1,276 @@
+.App {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  /* background: linear-gradient(90deg, #ffee74, #fff0b6); */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background: url(mainBg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.selected-item{
+  background: #007c15;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* my-css */
+
+.todoBox {
+  background: #032137db;
+  width: 60%;
+  padding: 30px;
+  margin: 40px;
+}
+
+.todoBox h1 {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+}
+
+.todoBox h3 {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 22px;
+}
+
+.todoBox p {
+  text-align: left;
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.profile-sec {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border-bottom: #ffc601  1px solid;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.profile-sec img {
+  height: 50px;
+  object-fit: cover;
+  width: 50px;
+  object-position: 0  -8px;
+  border-radius: 100%;
+  border: #ffc601 3px solid;
+  margin-left: 10px;
+}
+
+.profile-sec p {
+  font-size: 10px;
+  text-align: right;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.profile-sec p strong {
+  display: block;
+}
+
+.col-8 {
+  width: 60%;
+}
+
+.col-4 {
+  width: 40%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.taskFieldsBox {
+  display: flex;
+  align-items: center;
+}
+
+.inputBox {
+  width: 50%;
+  display: flex;
+}
+
+.inputBox input {
+  height: 36px;
+  width: 70%;
+  padding-left: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+.inputBox input:focus {
+  outline: none;
+}
+
+.inputBox button {
+  border: none;
+  background: #ffc601;
+  font-size: 18px;
+  padding: 0px 13px;
+  font-weight: 600;
+  border-radius: 0 20px 20px 0;
+}
+
+.inputBox button:hover{
+  background:#3d5261;
+  color:  #ffc601;
+  cursor: pointer;
+}
+
+.deleteAllBox{
+  display: flex;
+  width: 50%;
+  justify-content: end;
+}
+
+.deleteAllBox button {
+  border: none;
+  background: #a90000;
+  color: #fff;
+  font-size: 18px;
+  padding: 0px 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  height: 36px;
+}
+
+.deleteAllBox button:hover{
+  background:#3d5261;
+  color:  #ffc601;
+  cursor: pointer;
+}
+
+.listBox {
+  background: #3d5261;
+  text-align: left;
+  padding: 5px 20px;
+  margin-top: 24px;
+}
+
+.listBox ul {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 20px;
+  max-height: 316px;
+  overflow-y: scroll;
+}
+
+.listBox ul::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.listBox ul::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background: #0e161c;
+}
+ 
+.listBox ul::-webkit-scrollbar-thumb {
+  background-color: #ffc601;
+  outline: 1px solid #ffc601;
+  border-radius: 30px;
+
+}
+
+.listBox ul li {
+  border-left: #ffc601 8px solid;
+  border-bottom: #ffc601 8px solid;
+  background: #fff;
+  padding: 20px;
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.listBox ul li h4 {
+  margin: 0;
+  font-weight: 800;
+  padding-top: 12px;
+  font-style: italic;
+}
+
+
+.taskItem {
+  display: flex;
+  border-bottom: #d9d9d9 1px solid;
+  padding-bottom: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.taskItem .taskHD {
+  width: 80%;
+}
+
+.taskActions {
+  width: 30%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.taskActions button {
+  border: none;
+  background: #ffc601;
+  font-size: 18px;
+  padding: 6px 22px;
+  border-radius: 4px;
+  width: 90px;
+  margin-left: 3px;
+}
+
+.taskActions button:hover{
+  background:#3d5261;
+  color:  #ffc601;
+  cursor: pointer;
+}
+
+.listHD{
+  margin-bottom: 0;
+  color: #fff;
+  border-bottom: #ffffff 1px solid;
+  display: inline-block;
+}
+
+.top-Space{
+  padding-top: 10px;
+}
+
