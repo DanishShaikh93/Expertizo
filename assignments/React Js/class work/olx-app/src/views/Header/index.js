@@ -285,8 +285,8 @@ function Header() {
                 </div>
 
                 <div className='loginSellBtns'>
-                    <button className='simpleBtn'>Login</button>
-                    <button className='multiBtn'>+ Sell</button>
+                    <button  onClick={()=> navigate('/login')} className='simpleBtn'>Login</button>
+                    <button  onClick={()=> navigate('/ad-post')} className='multiBtn'>+ Sell</button>
                 </div>
 
             </div>

@@ -37,6 +37,10 @@
   }
 }
 
+button:hover{
+  cursor: pointer;
+}
+
 .loadingSec {
   display: flex;
   justify-content: center;
@@ -568,5 +572,86 @@ button.multiBtn {
   margin-bottom: 40px;
 }
 
-/* start light box */
+.formBox {
+  padding: 40px;
+  box-shadow: 0 0 8px 4px #e3e3e3;
+  border-radius: 6px;
+}
+
+.formBox input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding-left: 10px;
+  border: #ccc 1px solid;
+}
+
+.formBox h2 {
+  margin-top: 0;
+  font-size: 26px;
+  color: #000;
+}
+
+.formBox button {
+  background: #002f34;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 30px;
+  border: none;
+  margin-top: 20px;
+}
+
+.formBox button:hover{
+  background: #3a77ff;
+}
+
+.formBox p{
+  font-size: 16px;
+}
+
+.formBox p span {
+  color: #3a77ff;
+}
+
+
+.formBox textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding-left: 10px;
+  border: #ccc 1px solid;
+  padding-top: 14px;
+  font-family: sans-serif;
+  color: #000;
+}
+
+.formBox span:hover{
+  cursor: pointer;
+}
+
+.txt-center {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.txt-center h1{
+  font-size: 40px;
+}
+
+.d-flex{
+  display: flex;
+  align-items: center;
+}
+
+.sideImg img {
+  width: auto;
+  height: 350px;
+  margin: 0 40px;
+}
+
+.space-80{
+  margin: 40px auto;
+}
 

@@ -34,7 +34,7 @@ function Search() {
          {searchedAd.map(item => {
                  const { id, title, thumbnail, price, description } = item;
                  return <div className="adBox" onClick={() => navigate(`/ad-detail/${id}`)}>
-                     <img src={thumbnail} />
+                     <img src={thumbnail}  alt="Ad Thumnail"/>
 
                      <div className="adInfo">
                      <h3>Rs {price}</h3>
