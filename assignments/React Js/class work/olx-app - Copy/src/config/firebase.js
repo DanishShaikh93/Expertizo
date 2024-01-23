@@ -11,17 +11,8 @@ import {
 import { 
   getFirestore,
   collection, 
-  addDoc,
-  getDocs 
+  addDoc
  } from "firebase/firestore";
-
-
- import { 
-  getStorage, 
-  ref, 
-  uploadBytes,
-  getDownloadURL 
-} from "firebase/storage";
 
 
 
@@ -43,9 +34,6 @@ export const auth = getAuth(app);
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
-
-//Initialize Firebase Storage
-const storage = getStorage(app);
 
 
 
@@ -96,24 +84,12 @@ return true
 
 
 export async function adPostToDb(adDetails) {
-  console.log(adDetails)
   try{
 
-   const {adTitle, adPrice, adDescription, adImage} = adDetails;
-
-   //Step 1 upload ad image to Firebase Storage
-   const storageRef = ref(storage, `adsImages/${adImage.name}`);
-   await uploadBytes(storageRef, adImage);
-
-   //Step 2 Uploaded image ka url get krna hai jo storage mein save krayi thi
-   const adImageUrl= await getDownloadURL(storageRef);
-
-  //Step 3 add image link to firestore DB with other fields
+   const {adTitle, adDescription} = adDetails;
    await addDoc(collection(db, "ads"), {
      adTitle,
-     adPrice,
-     adDescription,
-     adImage: adImageUrl,
+     adDescription 
     })
     alert("Ad Posted Successfully")
 
@@ -123,22 +99,4 @@ export async function adPostToDb(adDetails) {
     alert("Error! Please try again");
     throw error;
   }
-}
-
-
-//Get All Ads
-export async function getAds() {
-  
-  const querySnapshot = await getDocs(collection(db, "ads"));
-  const ads = []
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    // console.log(doc.id, " => ", doc.data());
-    const ad = doc.data() // {tittle , price , description, imageUrl}
-    ad.id = doc.id //{id , tittle , price , description, imageUrl}
-    ads.push(ad)
-  });
-
-  return ads
-  
 }

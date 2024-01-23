@@ -16,23 +16,17 @@ import fashionCatImg from "../../images/fashion-beauty.png"
 import booksCatImg from "../../images/books-sports-hobbies.png"
 import kidsCatImg from "../../images/kids.png"
 
-import {getAds} from "../../config/firebase"
-
 function Homepage() {
     const navigate = useNavigate()
 
     const [allAds, setAllAds] = useState([]);
-    const [recentAds, setRecentAds] = useState([]);
 
 
     useEffect(() => {
         getApiData();
     }, [])
 
-    const getApiData = async () => {
-       const ads = await getAds()
-       setRecentAds(ads)
-       console.log("All Ads", ads)
+    const getApiData = () => {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())
             .then(res => setAllAds(res.products));
@@ -66,26 +60,6 @@ function Homepage() {
 
    </div>
 </div>
-
-        <div className="container"><h2>Recently Published Ads</h2></div>
-        <div className="container adSec recentAds">
-            {recentAds.map(item => {
-                    const { id, adTitle, adPrice, adDescription, adImage } = item;
-                    return <div className="adBox" onClick={() => navigate(`/ad-detail/${id}`)}>
-                        <img src={adImage} />
-
-                        <div className="adInfo">
-                        <h3>Rs {adPrice}</h3>
-                        <h2>{adTitle}</h2>
-                        <p>{adDescription}</p>
-                        <button onClick={() => navigate(`/ad-detail/${id}`)}>View Details</button>
-                        </div>   
-
-                    </div>
-                })
-            }
-
-        </div>
 
         <div className="container"><h2>Featured Ads</h2></div>
         <div className="container adSec">

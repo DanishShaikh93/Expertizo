@@ -664,13 +664,3 @@ button.multiBtn {
   margin: 40px auto;
 }
 
-.formBox input[type="file"] {
-  border: none;
-  margin-bottom: 0;
-  margin-top: 20px;
-}
-
-.recentAds > div:last-child {
-  margin-right: unset;
-  margin-left: 0;
-}

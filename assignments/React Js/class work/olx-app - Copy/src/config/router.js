@@ -33,8 +33,6 @@ import Search from '../views/Search';
 import Login from '../views/Login';
 import Register from '../views/Register';
 import AdPost from '../views/AdPost';
-import { useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
 
 function MainRouter() {
     return <Router>
@@ -52,26 +50,3 @@ function MainRouter() {
 }
 
   export default MainRouter;
-
-
-//   useEffect(()=>{
-//     onAuthStateChanged(auth, (user) => {
-//         //setUser();
-//     })
-//   },[])
-
-//   useEffect(()=>{
-// const {pathname} = window.location;
-
-
-// if(user){
-//     if(pathname === "/login" || pathname === "/register"){
-//         Navigate("/");
-//     }else{
-//         if(pathname === "/postAds"){
-//             Navigate("/login");
-//         }
-//     }
-// }
-
-//   }, [window.location.pathname, user]);
