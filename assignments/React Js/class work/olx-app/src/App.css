@@ -37,6 +37,17 @@
   }
 }
 
+
+.curUserInfo img {
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  object-fit: cover;
+  margin-left: 10px;
+  border-radius: 100%;
+  border: #e5e5e5 4px solid;
+}
+
 button:hover{
   cursor: pointer;
 }
@@ -84,6 +95,7 @@ img.main-logo {
 
 .adInfo {
   padding: 20px;
+  position: relative;
 }
 
 .adInfo h3 {
@@ -224,7 +236,7 @@ img.main-logo {
 
 
 .searchBox {
-  width: 48%;
+  width: 46%;
   position: relative;
 }
 
@@ -254,7 +266,7 @@ img.main-logo {
 }
 
 .loginSellBtns {
-  width: 18%;
+  width: 20%;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -585,21 +597,35 @@ button.multiBtn {
   padding: 40px;
   box-shadow: 0 0 8px 4px #e3e3e3;
   border-radius: 6px;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .formBox input {
-  width: 100%;
-  height: 50px;
+  width: 44%;
+  height: 36px;
   margin-bottom: 10px;
   font-size: 16px;
   padding-left: 10px;
+  padding-right: 10px;
   border: #ccc 1px solid;
 }
-
 .formBox h2 {
   margin-top: 0;
   font-size: 26px;
   color: #000;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.formBox h3{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.formBox h2 + p{
+  margin-top: 0;
 }
 
 .formBox button {
@@ -608,15 +634,16 @@ button.multiBtn {
   font-size: 18px;
   padding: 10px 30px;
   border: none;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .formBox button:hover{
   background: #3a77ff;
 }
 
-.formBox p{
+.formBox p {
   font-size: 16px;
+  width: 100%;
 }
 
 .formBox p span {
@@ -640,6 +667,19 @@ button.multiBtn {
   cursor: pointer;
 }
 
+
+
+.radioField input[type=radio] {
+  height: 20px;
+  width: 20px;
+  vertical-align: sub;
+}
+
+.formBox p strong {
+  width: 100%;
+  display: block;
+}
+
 .txt-center {
   text-align: center;
   margin-bottom: 60px;
@@ -647,6 +687,11 @@ button.multiBtn {
 
 .txt-center h1{
   font-size: 40px;
+  margin-bottom: 0;
+}
+
+.txt-center h3{
+  margin-top: 0;
 }
 
 .d-flex{
@@ -656,7 +701,7 @@ button.multiBtn {
 
 .sideImg img {
   width: auto;
-  height: 350px;
+  height: 300px;
   margin: 0 40px;
 }
 
@@ -667,10 +712,222 @@ button.multiBtn {
 .formBox input[type="file"] {
   border: none;
   margin-bottom: 0;
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+  width: 100%;
 }
 
 .recentAds > div:last-child {
   margin-right: unset;
   margin-left: 0;
+}
+
+.updateDpBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.updateDpBox img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: #000000 4px solid;
+}
+
+.updateDpBox input[type="file"] {
+  margin-top: 0;
+}
+
+.updateDpBox strong {
+  margin-left: 10px;
+  color: #3a77ff;
+}
+
+.formBox p.dob{
+  width: 44%;
+  margin-top: 10px;
+}
+
+.formBox p.radioField{
+  width: 44%;
+  margin-top: 10px;
+}
+
+.formBox p.dob input[type="date"]{
+  width: 100%;
+}
+
+.formBox p.dob strong, .formBox p.radioField strong{
+  margin-bottom: 10px;
+}
+
+.width-sep{
+  width: 44%;
+}
+
+.profile-sec {
+  display: flex;
+  column-gap: 30px;
+}
+
+.pInfo {
+  width: 30%;
+  border: #d5d5d5 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  padding: 20px;
+  background: #002f34;
+}
+
+.pInfo img {
+  height: 140px;
+  width: 140px;
+  border-radius: 100%;
+  object-fit: cover;
+  border: #e5e5e5 4px solid;
+  cursor: pointer;
+}
+
+
+
+.pInfo ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pInfo ul li {
+  border-bottom: #0b5f68 1px solid;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+.pInfo ul li strong {
+  color: #3a77ff;
+  display: block;
+}
+
+.pInfo *{
+  color: #fff;;
+}
+
+.pInfo h2 {
+  color: #fff;
+}
+
+.userAds {
+  width: 70%;
+}
+
+
+.authorName {
+  background: #3a77ff;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: -4px;
+  padding: 3px 0;
+  font-size: 14px;
+}
+
+.authorName + h3 {
+  margin-top: 20px;
+}
+
+.avatar {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.dropdown-content img {
+  height: 70px;
+  width: 70px;
+  vertical-align: middle;
+  
+  border-radius: 100%;
+  object-fit: cover;
+  border: #e5e5e5 4px solid;
+}
+
+
+.dropdown-content {
+  position: absolute;
+  background: #fff;
+  right: 130px;
+  margin-top: 17px;
+  width: 320px;
+  box-shadow: 0 0 7px 3px #d7d7d7;
+  border-radius: 4px;
+}
+
+.dropdown-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.dropdown-content ul li {
+  border-bottom: #ccc 1px solid;
+  padding: 6px 18px;
+  transition: all 0.5s ease-in-out;
+}
+
+.dpLine {
+  padding: 20px;
+  border-bottom: #ccc 1px solid;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.dpLine span {
+  font-size: 14px;
+}
+
+.dpLine i {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3a77ff;
+}
+
+.dropdown-content ul li:last-child{
+  border-bottom: 0;
+}
+
+.avatar img {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  object-fit: cover;
+  border: #e5e5e5 4px solid;
+  cursor: pointer;
+}
+
+.dropdown-content ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.avatar .fa-angle-down {
+  margin-left: -10px;
+}
+
+.avatar i {
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.dropdown-content ul li:hover{
+  color: #3a77ff;
+  cursor: pointer;
+  padding-left: 30px;
 }

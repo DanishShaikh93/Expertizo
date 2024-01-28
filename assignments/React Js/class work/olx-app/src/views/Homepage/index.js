@@ -16,7 +16,15 @@ import fashionCatImg from "../../images/fashion-beauty.png"
 import booksCatImg from "../../images/books-sports-hobbies.png"
 import kidsCatImg from "../../images/kids.png"
 
+import { auth } from '../../config/firebase'
+
+import { db } from '../../config/firebase'
+
 import {getAds} from "../../config/firebase"
+
+import { onAuthStateChanged} from "firebase/auth";
+
+import { collection, query, where, getDocs, getDoc, doc, updateDoc } from "firebase/firestore";
 
 function Homepage() {
     const navigate = useNavigate()
@@ -37,6 +45,7 @@ function Homepage() {
             .then(res => res.json())
             .then(res => setAllAds(res.products));
     }
+
 
 
     return (
@@ -70,15 +79,16 @@ function Homepage() {
         <div className="container"><h2>Recently Published Ads</h2></div>
         <div className="container adSec recentAds">
             {recentAds.map(item => {
-                    const { id, adTitle, adPrice, adDescription, adImage } = item;
-                    return <div className="adBox" onClick={() => navigate(`/ad-detail/${id}`)}>
+                    const { id, adTitle, adPrice, adDescription, adImage, authorFirstName , authorLastName  } = item;
+                    return <div className="adBox" onClick={() => navigate(`/ad-details/${id}`)}>
                         <img src={adImage} />
 
                         <div className="adInfo">
+                        <div className="authorName">Ad Posted By: {authorFirstName} {authorLastName }</div>
                         <h3>Rs {adPrice}</h3>
                         <h2>{adTitle}</h2>
                         <p>{adDescription}</p>
-                        <button onClick={() => navigate(`/ad-detail/${id}`)}>View Details</button>
+                        <button onClick={() => navigate(`/ad-details/${id}`)}> View Details</button>
                         </div>   
 
                     </div>

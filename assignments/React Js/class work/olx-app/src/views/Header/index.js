@@ -6,13 +6,19 @@ import arrowDown from '../../images/arrow-down.png'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../../config/firebase'
-import { onAuthStateChanged } from "firebase/auth";
+
+import { db } from '../../config/firebase'
+
+import { onAuthStateChanged, signOut} from "firebase/auth";
+
+import { collection, query, where, getDocs } from "firebase/firestore";
+
 
 function Header() {
     const navigate = useNavigate()
-    const [curUser, setCurUser] = useState();
 
     const[curSearch, setCurSearch]=useState();
+    const[currentUser, setCurrentUser]=useState();
 
     const searchKeyword= (event)=>{
         const value= event.target.value
@@ -23,18 +29,37 @@ function Header() {
 
     //get current login info
 
-    useEffect(()=>{
-        onAuthStateChanged(auth, (user) => {
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
             if (user) {
-              const userEmail = user.email;
-              setCurUser(userEmail)
-              console.log(userEmail)
+                const loggedInUserId = user.uid;
+                const q = query(collection(db, "users"), where("userId", "==", loggedInUserId));
+                const querySnapshot = await getDocs(q);
+                querySnapshot.forEach((doc) => {
+                    setCurrentUser(doc.data());
+                });
             } else {
-          
+                setCurrentUser("");  // Clear currentUser when the user is not authenticated
             }
-          });
-    }, [])
+        });
 
+        // Cleanup the subscription on component unmount
+        return () => unsubscribe();
+    }, []);
+
+    const logoutUser = () => {
+        signOut(auth);
+        setCurrentUser("");
+    }
+
+
+    // for avatar dropdown
+
+        const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+      
+        const toggleDropdown = () => {
+          setIsDropdownOpen(!isDropdownOpen);
+        };
 
     
     return (
@@ -47,7 +72,9 @@ function Header() {
                 <div className='tpIco'><span><i><img src={propertyIco} height="30" alt="property"/></i>Property</span></div>
                 </div>
 
-                <div className='col curUserInfo'>{curUser && <strong>Welcome <i> {curUser}</i></strong>}</div>
+                {/* <div className='col curUserInfo'>{currentUser && 
+                <strong>Welcome <i> {currentUser.firstName}</i><img src={currentUser.userDp} height="40" alt={currentUser.firstName}/> </strong>}
+                </div> */}
 
             </div>
 
@@ -307,11 +334,51 @@ function Header() {
 
                 <div className='searchBox'>
                    <input onChange={searchKeyword} type='text' placeholder='Find Cars, Mobile Phones and more...'/>
-                   <button onClick={()=> navigate(`/search-result/${curSearch}`)}><img src={search} height="20"/></button>
+                   <button onClick={()=> navigate(`/search-result/${curSearch}`)}><img src={search} height="20" alt="search"/></button>
                 </div>
 
                 <div className='loginSellBtns'>
-                   {curUser ? <button  onClick={()=> navigate('/login')} className='simpleBtn'>Logout</button> : <button  onClick={()=> navigate('/login')} className='simpleBtn'>Login</button> }
+
+                {currentUser ? 
+                
+                <div className="avatar-dropdown">
+      <div className="avatar" onClick={toggleDropdown}>
+      <i className='fa fa-comment-o'></i>
+      <i className='fa fa-bell-o'></i>
+      <img src={currentUser.userDp} height="40" alt={currentUser.firstName}/>
+      <i className='fa fa-angle-down'></i>
+      </div>
+      {isDropdownOpen && (
+        <div className="dropdown-content">
+          {/* Dropdown content goes here */}
+          {currentUser && 
+                <div className='dpLine'><img src={currentUser.userDp} height="40" alt={currentUser.firstName}/> 
+              <span> Welcome <i> {currentUser.firstName} {currentUser.lastName}</i></span>
+                </div>}
+        
+          <ul>
+            <li onClick={()=> navigate('/profile')}><i className='fa fa-user-circle-o'></i> My Profile</li>
+            <li onClick={()=> navigate('/profile')}><i className='fa fa-newspaper-o'></i> My Ads</li>
+            <li onClick={()=> navigate('/profile')}><i className='fa fa-heart-o'></i> Favourite & Save Searches</li>
+            <li onClick={()=> navigate('/profile')}><i className='fa fa-list-alt'></i> Buy Business Packages</li>
+            <li onClick={()=> navigate('/profile')}><i className='fa fa-credit-card'></i> Bought Packages & Billing</li>
+            <li onClick={()=> navigate('/profile')}><i className='fa fa-question-circle-o'></i> Help</li>
+            <li onClick={()=> navigate('/edit-profile')}><i className='fa fa-sliders'></i> Settings</li>
+            <li onClick={logoutUser}><i className='fa fa-toggle-left'></i> Logout</li>
+          </ul>
+        </div>
+      )}
+    </div>
+    :
+<button  onClick={()=> navigate('/login')} className='simpleBtn'>Login</button>
+                
+                }
+
+
+
+                
+                   
+
                     <button  onClick={()=> navigate('/ad-post')} className='multiBtn'>+ Sell</button>
                 </div>
 

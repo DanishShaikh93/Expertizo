@@ -1,10 +1,12 @@
+import Swal from 'sweetalert2'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
 import { 
     getAuth, 
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword 
+    signInWithEmailAndPassword, 
+    onAuthStateChanged
 } from "firebase/auth";
 
 //Import firestore DB
@@ -12,7 +14,9 @@ import {
   getFirestore,
   collection, 
   addDoc,
-  getDocs 
+  getDocs,
+  where,
+  query 
  } from "firebase/firestore";
 
 
@@ -35,6 +39,17 @@ const firebaseConfig = {
     appId: "1:62166399693:web:fac637b2133f67ece28784"
 };
 
+
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: "AIzaSyD-TwBnjAlzfKFg9BAz-EYsEphJTHR5h-s",
+//   authDomain: "olx-app-1deb1.firebaseapp.com",
+//   projectId: "olx-app-1deb1",
+//   storageBucket: "olx-app-1deb1.appspot.com",
+//   messagingSenderId: "211283374995",
+//   appId: "1:211283374995:web:142fc4a1b6efaec4906e66"
+// };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -42,10 +57,10 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 //Initialize Firebase Storage
-const storage = getStorage(app);
+export const storage = getStorage(app);
 
 
 
@@ -54,13 +69,33 @@ const storage = getStorage(app);
 
 export async function register(userInfo) {
   try{
-    const { name, age, email, password } = userInfo;
-  await createUserWithEmailAndPassword(auth, email, password);
+    const { firstName, lastName, email, phone, password, dob, gender, dp } = userInfo;
+
+//Step 1 upload ad image to Firebase Storage
+const storageRef = ref(storage, `userDps/${dp.name}`);
+await uploadBytes(storageRef, dp);
+
+//Step 2 Uploaded image ka url get krna hai jo storage mein save krayi thi
+const userDpUrl= await getDownloadURL(storageRef);
+
+
+const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+ // Access the user's UID
+//  console.log('check userCredential ', userCredential)
+ const uid = userCredential.user.uid;
+//  console.log('current user id after registration: ', uid);
+
    // Add a new document with a generated id.
 await addDoc(collection(db, "users"), {
-  name: name,
-  age: age,
+  userId: uid,
+  firstName: firstName,
+  lastName: lastName,
   email: email,
+  phone: phone,
+  dob: dob,
+  gender: gender,
+  userDp: userDpUrl
 });
 
 alert("Successfully Registered !");
@@ -96,10 +131,10 @@ return true
 
 
 export async function adPostToDb(adDetails) {
-  console.log(adDetails)
+ 
   try{
 
-   const {adTitle, adPrice, adDescription, adImage} = adDetails;
+   const {adTitle, adPrice, adDescription, adImage, currentUser} = adDetails;
 
    //Step 1 upload ad image to Firebase Storage
    const storageRef = ref(storage, `adsImages/${adImage.name}`);
@@ -114,8 +149,16 @@ export async function adPostToDb(adDetails) {
      adPrice,
      adDescription,
      adImage: adImageUrl,
+     userId: currentUser.userId,
+     authorFirstName: currentUser.firstName,
+     authorLastName: currentUser.lastName,
+     authorEmail: currentUser.email
     })
-    alert("Ad Posted Successfully")
+    Swal.fire({
+      title: "Good job!",
+      text: "Ad Posted Successfully",
+      icon: "success"
+    });
 
     return true;
 
@@ -128,7 +171,7 @@ export async function adPostToDb(adDetails) {
 
 //Get All Ads
 export async function getAds() {
-  
+
   const querySnapshot = await getDocs(collection(db, "ads"));
   const ads = []
   querySnapshot.forEach((doc) => {
