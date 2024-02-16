@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import logo from '../../images/logo.png'
 import carIco from '../../images/car.png'
 import propertyIco from '../../images/property.png'
@@ -13,9 +14,22 @@ import { onAuthStateChanged, signOut} from "firebase/auth";
 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
+import { useDispatch, useSelector } from 'react-redux'
+import { setTheme } from '../../Store/themeSlice'
+import { removeCartItem } from '../../Store/cartSlice'
+
+
+
+
 
 function Header() {
     const navigate = useNavigate()
+    const dispatch= useDispatch()
+
+    const theme = useSelector(state => state.themeReducer.theme)
+    const cart = useSelector(state => state.cartReducer.cart)
+    console.log('theme', theme)
+    console.log('cart', cart)
 
     const[curSearch, setCurSearch]=useState();
     const[currentUser, setCurrentUser]=useState();
@@ -61,16 +75,67 @@ function Header() {
           setIsDropdownOpen(!isDropdownOpen);
         };
 
+
+          // for basket
+
+          const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false);
+      
+          const toggleCartDropdown = () => {
+            setIsCartDropdownOpen(!isCartDropdownOpen);
+          };
     
     return (
-    <div className="container-fluid headerSec">
+    <div className={`container-fluid headerSec ${theme}`}>
         <div className="container">
             <div className="topBar">
-                <div className='col d-flex'>
-                <div className='col'><img onClick={()=> navigate('/')} src={logo} height="20" alt="logo"/></div>
+                
+                    <div className='col-6'>
+                    <div className='col'><img onClick={()=> navigate('/')} src={logo} height="20" alt="logo"/></div>
                 <div className='tpIco'><span><i><img src={carIco} height="30" alt="car"/></i> Motors</span></div>
                 <div className='tpIco'><span><i><img src={propertyIco} height="30" alt="property"/></i>Property</span></div>
-                </div>
+                {/* <div className='tpIco'>
+                    <i onClick={()=> dispatch(setTheme('dark-theme'))} className='fa fa-moon-o'></i>
+                    <i onClick={()=> dispatch(setTheme('light-theme'))} className='fa fa-sun-o'></i>
+                </div> */}
+                    </div>
+
+                    <div className='col-6'>
+                    <div className='cartIco'><span  onClick={toggleCartDropdown}>Shopping Cart : <i className='fa fa-shopping-cart'></i> {cart.length} </span>
+                    {isCartDropdownOpen && 
+                    <div className='cartItems-list'>
+                        <h3>Cart Items:</h3>
+                     
+                        <ul>
+                        <p>{!cart.length && "Cart is empty"}</p>   
+                        {cart.map( (item, index)=> {
+                            return <li>
+                                <h6>Item {index + 1} <i onClick={()=> {
+                                      Swal.fire({
+                                        title: "Item Removed",
+                                        text: "Item Successfully Removed From Cart",
+                                        icon: "success",
+                                      });
+                                dispatch(removeCartItem(index))
+                                }
+                                } className='fa fa-times'></i></h6>
+                            <div className='d-flex'>
+                                <div><img src={item.adImages[0]} alt={item.adTitle} height="30" /></div>
+                                <div>
+                                    <h4>{item.adTitle}</h4>
+                                    <strong>Rs {item.adPrice}</strong>
+                                </div>
+                            </div>
+                          </li>
+                        })}
+                        </ul>
+                    </div>
+}
+                    </div>
+                    </div>
+                
+
+                
+               
 
                 {/* <div className='col curUserInfo'>{currentUser && 
                 <strong>Welcome <i> {currentUser.firstName}</i><img src={currentUser.userDp} height="40" alt={currentUser.firstName}/> </strong>}
@@ -336,6 +401,7 @@ function Header() {
                    <input onChange={searchKeyword} type='text' placeholder='Find Cars, Mobile Phones and more...'/>
                    <button onClick={()=> navigate(`/search-result/${curSearch}`)}><img src={search} height="20" alt="search"/></button>
                 </div>
+            
 
                 <div className='loginSellBtns'>
 

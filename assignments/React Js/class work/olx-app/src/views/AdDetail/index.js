@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import avatar from "../../images/avatar.png";
@@ -20,11 +21,16 @@ import { db } from '../../config/firebase'
 
 import { getDoc, getDocs, doc, query, collection, where } from "firebase/firestore";
 
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart } from '../../Store/cartSlice'
+
 
 function AdDetail() {
     const {adId}= useParams()
     const [curAd, setCurAd]=useState(null);
     const [adAuthor, setAdAuthor]=useState(null);
+
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         getCurAd()
@@ -55,7 +61,7 @@ function AdDetail() {
     };
 
 
-console.log(adAuthor)
+console.log(curAd)
 
 
     return (
@@ -65,15 +71,18 @@ console.log(adAuthor)
        
        :<div className="container adDetailBox">
         <div className="adInfoBox">
-            <div className="adThumb"><img src={curAd.adImage}/></div>
+            <div className="adThumb"><img src={curAd.adImages.length && curAd.adImages[0]}/></div>
             <div className="adGallery">
-                {!curAd.adImage ? "Loading..." 
+                {!curAd.adImages ? "Loading..." 
                 : 
                 <LightGallery
                 speed={500}
                 plugins={[lgThumbnail, lgZoom]}
                 >
-                <a href={curAd.adImage}><img src={curAd.adImage}/> </a>
+            {curAd.adImages.map((item) => {
+return <a href={item}><img src={item}/> </a>
+            })}
+                
                 </LightGallery>
 }
             </div>
@@ -103,6 +112,17 @@ console.log(adAuthor)
             <div><img src={adAuthor && adAuthor.userDp}/></div>
             <div><h4>{adAuthor && `${adAuthor.firstName} ${adAuthor.lastName}`}</h4><p><a>{adAuthor && adAuthor.email}</a></p></div>
             </div>
+            <button className="btnDark" onClick={() => { 
+                  Swal.fire({
+                    title: "Item Added To Cart",
+                    text: "Selected Item Successfully Added To Cart For Purchase",
+                    icon: "success",
+                  });
+                  
+                dispatch(addToCart(curAd))
+             // Show success message
+            }    
+        }> <i className="fa fa-shopping-cart"></i> Add To Cart</button>
             <button className="btnDark"><img src={phoneIcon} alt="phone"/> Show Phone Number</button>
             <button className="btnLight"><img src={chatIcon} alt="chat"/> Chat</button>
         </div>

@@ -131,38 +131,44 @@ return true
 
 
 export async function adPostToDb(adDetails) {
- 
-  try{
+  try {
+    const { adTitle, adPrice, adDescription, adImages, currentUser } = adDetails;
 
-   const {adTitle, adPrice, adDescription, adImage, currentUser} = adDetails;
+    const adImageUrls = [];
 
-   //Step 1 upload ad image to Firebase Storage
-   const storageRef = ref(storage, `adsImages/${adImage.name}`);
-   await uploadBytes(storageRef, adImage);
+    // Step 1: Upload each ad image to Firebase Storage
 
-   //Step 2 Uploaded image ka url get krna hai jo storage mein save krayi thi
-   const adImageUrl= await getDownloadURL(storageRef);
+    for (const adImage of adImages) {
+      const storageRef = ref(storage, `adsImages/${adImage.name}`);
+      await uploadBytes(storageRef, adImage);
 
-  //Step 3 add image link to firestore DB with other fields
-   await addDoc(collection(db, "ads"), {
-     adTitle,
-     adPrice,
-     adDescription,
-     adImage: adImageUrl,
-     userId: currentUser.userId,
-     authorFirstName: currentUser.firstName,
-     authorLastName: currentUser.lastName,
-     authorEmail: currentUser.email
-    })
+      // Step 2: Get the download URL for the uploaded image
+      const adImageUrl = await getDownloadURL(storageRef);
+      adImageUrls.push(adImageUrl);
+    }
+
+    // Step 3: Add image links to Firestore DB along with other fields
+    await addDoc(collection(db, "ads"), {
+      adTitle,
+      adPrice,
+      adDescription,
+      adImages: adImageUrls, // Store an array of image URLs
+      userId: currentUser.userId,
+      authorFirstName: currentUser.firstName,
+      authorLastName: currentUser.lastName,
+      authorEmail: currentUser.email,
+    });
+
+    // Show success message
     Swal.fire({
       title: "Good job!",
       text: "Ad Posted Successfully",
-      icon: "success"
+      icon: "success",
     });
 
     return true;
-
-  } catch (error){
+  } catch (error) {
+    // Handle errors
     alert("Error! Please try again");
     throw error;
   }

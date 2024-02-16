@@ -39,6 +39,7 @@ function Homepage() {
 
     const getApiData = async () => {
        const ads = await getAds()
+       console.log(ads.userId)
        setRecentAds(ads)
        console.log("All Ads", ads)
         fetch('https://dummyjson.com/products')
@@ -46,7 +47,7 @@ function Homepage() {
             .then(res => setAllAds(res.products));
     }
 
-
+console.log(recentAds)
 
     return (
 <>
@@ -79,9 +80,9 @@ function Homepage() {
         <div className="container"><h2>Recently Published Ads</h2></div>
         <div className="container adSec recentAds">
             {recentAds.map(item => {
-                    const { id, adTitle, adPrice, adDescription, adImage, authorFirstName , authorLastName  } = item;
+                    const { id, adTitle, adPrice, adDescription, adImages, authorFirstName , authorLastName  } = item;
                     return <div className="adBox" onClick={() => navigate(`/ad-details/${id}`)}>
-                        <img src={adImage} />
+                        <img src={adImages} />
 
                         <div className="adInfo">
                         <div className="authorName">Ad Posted By: {authorFirstName} {authorLastName }</div>

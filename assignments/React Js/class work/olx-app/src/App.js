@@ -3,6 +3,10 @@ import loadingImg from "./images/loading.gif"
 import { useState } from 'react';
 import MainRouter from '../src/config/router';
 
+import { store, persistor } from './Store'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+
 
 function App() {
   const [loading, setLoading] = useState(true); // State for controlling loader visibility
@@ -19,9 +23,11 @@ function App() {
           {loading  
           ? <div className='loadingSec'><img src={loadingImg} alt="Loading..." /></div>
                 : <div>
-                  
+                  <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
                <MainRouter/>
-     
+     </PersistGate>
+     </Provider>
                 </div>
 }
        </>

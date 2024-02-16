@@ -49,6 +49,7 @@ function EditProfile() {
                 querySnapshot.forEach((doc) => {
                     setCurrentUser(doc.data());
                     setCurrentDocId(doc.id)
+                    console.log(currentDocId)
                 });
 
             } else {
@@ -128,7 +129,7 @@ function EditProfile() {
         }
     };
 
-
+console.log(currentDocId)
     return (
         <div className="container space-80">
              
