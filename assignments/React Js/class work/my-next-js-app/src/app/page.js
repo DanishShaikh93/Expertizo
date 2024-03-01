@@ -32,6 +32,7 @@ return (
                 <h2>{item.name}</h2>
                 {/* <h2>{item.id}</h2> */}
                 <Link href={`/meme-editor?url=${item.url}`}> Create Meme </Link>
+                <Link href={`/meme-editor/${item.id}`}> View Detail </Link>
     </div>
 )
 
