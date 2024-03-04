@@ -5,7 +5,7 @@ export default function Dashboard({navigation}) {
 
     const goToMap = ()=>{
         // console.log(navigation)
-        navigation.navigate("user-map")
+        navigation.navigate("user-pickup")
             }
 
   return (
