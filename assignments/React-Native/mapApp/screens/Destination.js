@@ -7,7 +7,7 @@ import * as Location from 'expo-location';
 import MapView, {Marker} from 'react-native-maps';
 
 
-export default function UserDestination({navigation, route }) {
+export default function ({navigation, route }) {
 const {pickup} = route.params;
 console.log(pickup)
 
@@ -78,7 +78,7 @@ setDestination(item);
 
 
  <View>
-          <TextInput placeholder='Search Pickup Location' onChangeText={searchPlaces}></TextInput>
+          <TextInput style={styles.input} placeholder='Search Pickup Location' onChangeText={searchPlaces}></TextInput>
            {!destination &&
             <View>
             {places.map((item , index) => {
@@ -115,7 +115,7 @@ description={"My Home"}
 />
 
         </MapView>
-        <Button disabled={!destination} style={styles.button} title='Select Fare'/>
+        <Button disabled={!destination} style={styles.button} title='Select Fare' onPress={()=> navigation.navigate('select-fare', {pickup, destination} )}/>
     </View>
 
     </View>
@@ -141,5 +141,14 @@ const styles = StyleSheet.create({
   },
   pickupLocation:{
     color: "red",
+  },
+  input: {
+    borderColor: 'black',
+    borderWidth: 1, // Remove quotes from 1px
+    borderStyle: 'solid',
+    width: "100%",
+    height: 40,
+    paddingHorizontal: 10,
+    margin: "auto",
   }
 });

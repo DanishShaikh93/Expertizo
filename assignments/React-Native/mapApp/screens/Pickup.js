@@ -83,13 +83,9 @@ setPickup(item);
 
   return (
     <View>
-         <TouchableOpacity style={styles.button} onPress={goToDashboard}>
-        <Text style={styles.text}> Go To Dashboard </Text>
-        </TouchableOpacity>
-
-
+  
         <View>
-          <TextInput placeholder='Search Pickup Location' onChangeText={searchPlaces}></TextInput>
+          <TextInput style={styles.input} placeholder='Search Pickup Location' onChangeText={searchPlaces}></TextInput>
            {!pickup &&
             <View>
             {places.map((item , index) => {
@@ -152,5 +148,14 @@ const styles = StyleSheet.create({
   },
   pickupLocation:{
     color: "red",
+  },
+  input: {
+    borderColor: 'black',
+    borderWidth: 1, // Remove quotes from 1px
+    borderStyle: 'solid',
+    width: "100%",
+    height: 40,
+    paddingHorizontal: 10,
+    margin: "auto",
   }
 });
