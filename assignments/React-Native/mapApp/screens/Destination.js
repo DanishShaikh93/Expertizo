@@ -7,9 +7,9 @@ import * as Location from 'expo-location';
 import MapView, {Marker} from 'react-native-maps';
 
 
-export default function ({navigation, route }) {
+export default function Destination ({navigation, route }) {
 const {pickup} = route.params;
-console.log(pickup)
+console.log('Pickup', pickup)
 
 const [location, setLocation] = useState(null);
 const [errorMsg, setErrorMsg] = useState(null);
